@@ -1,3 +1,13 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Juego/Niveles/Naves/Player.tscn" type="PackedScene" id=1]
 
 [node name="NivelTest" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 549, 277 )
+gravity_scale = 3.0
+
+[node name="Player2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 546, 444 )
+gravity_scale = 0.0
