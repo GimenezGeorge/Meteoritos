@@ -6,6 +6,5 @@
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 549, 277 )
-
-[node name="Player2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 546, 444 )
+potencia_motor = 80
+potencia_rotacion = 600

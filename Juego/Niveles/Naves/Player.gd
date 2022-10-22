@@ -15,13 +15,13 @@ func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
 	apply_torque_impulse(dir_rotacion * potencia_rotacion)
 
 func _process(_delta: float) -> void:
-	pass
+	player_input()
 
 ## Metodos Custom
 func player_input() -> void:
 	# Empuje
 	empuje = Vector2.ZERO
-	if Input.is_action_just_pressed("m_adelante"):
+	if Input.is_action_pressed("m_adelante"):
 		empuje = Vector2(potencia_motor, 0)
 	elif Input.is_action_pressed("m_atras"):
 		empuje = Vector2(-potencia_motor, 0)

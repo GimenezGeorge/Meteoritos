@@ -8,7 +8,6 @@
 radius = 38.2704
 
 [node name="Player" type="RigidBody2D"]
-position = Vector2( 503, 311 )
 physics_material_override = ExtResource( 2 )
 gravity_scale = 0.0
 can_sleep = false
