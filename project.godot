@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Juego/Niveles/Naves/Player.gd"
+}, {
+"base": "Area2D",
+"class": "Proyectil",
+"language": "GDScript",
+"path": "res://Juego/Niveles/Proyectiles/Proyectil.gd"
 } ]
 _global_script_class_icons={
-"Player": ""
+"Player": "",
+"Proyectil": ""
 }
 
 [application]
