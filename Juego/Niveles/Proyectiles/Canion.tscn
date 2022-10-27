@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Juego/Niveles/Proyectiles/Canion.gd" type="Script" id=1]
 [ext_resource path="res://Juego/Niveles/Proyectiles/Proyectil.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Niveles/Naves/disparo_principal.ogg" type="AudioStream" id=3]
 
 [node name="Canion" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,6 +15,8 @@ velocidad_proyectil = 1600
 [node name="PuntoDerecho" type="Position2D" parent="."]
 
 [node name="DisparoSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+bus = "SFX"
 
 [node name="TimerEnfriamiento" type="Timer" parent="."]
 

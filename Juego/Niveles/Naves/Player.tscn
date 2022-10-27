@@ -34,4 +34,7 @@ position = Vector2( 0, -33 )
 [node name="PuntoDerecho" parent="Canion" index="1"]
 position = Vector2( 0, 33 )
 
+[node name="DisparoSFX" parent="Canion" index="2"]
+bus = "SFX"
+
 [editable path="Canion"]
