@@ -6,6 +6,7 @@ var velocidad:Vector2 = Vector2.ZERO
 var danio:float
 
 ## Metodos
+# warning-ignore:unused_argument
 func crear(pos: Vector2, dir: float, vel: float, danio_p: int) -> void:
 	position = pos
 	rotation = dir
