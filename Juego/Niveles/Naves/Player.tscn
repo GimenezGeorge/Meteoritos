@@ -55,5 +55,6 @@ max_points = 150
 target_path = NodePath("..")
 
 [node name="MotorSFX" parent="." instance=ExtResource( 7 )]
+volume_db = -2.537
 
 [editable path="Canion"]
