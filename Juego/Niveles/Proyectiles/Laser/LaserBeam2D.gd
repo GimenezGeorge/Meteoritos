@@ -21,6 +21,7 @@ onready var tween := $Tween
 onready var casting_particles := $CastingParticles2D
 onready var collision_particles := $CollisionParticles2D
 onready var beam_particles := $BeamParticles2D
+onready var laser_sfx: AudioStreamPlayer2D = $LaserSFX
 
 onready var line_width: float = fill.width
 
@@ -39,10 +40,12 @@ func set_is_casting(cast: bool) -> void:
 	is_casting = cast
 
 	if is_casting:
+		laser_sfx.play()
 		cast_to = Vector2.ZERO
 		fill.points[1] = cast_to
 		appear()
 	else:
+		laser_sfx.stop()
 		collision_particles.emitting = false
 		disappear()
 
@@ -74,7 +77,6 @@ func appear() -> void:
 		tween.stop_all()
 	tween.interpolate_property(fill, "width", 0, line_width, growth_time * 2)
 	tween.start()
-
 
 func disappear() -> void:
 	if tween.is_active():
