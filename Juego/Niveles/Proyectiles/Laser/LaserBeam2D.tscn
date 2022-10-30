@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Juego/Niveles/Proyectiles/Laser/LaserBeam2D.gd" type="Script" id=1]
 [ext_resource path="res://Juego/Niveles/Proyectiles/Laser/glowing_circle.png" type="Texture" id=2]
 [ext_resource path="res://Juego/Niveles/Proyectiles/Laser/Laser.ogg" type="AudioStream" id=3]
+[ext_resource path="res://default_env.tres" type="Environment" id=4]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.582915, 1 )
@@ -114,3 +115,6 @@ texture = ExtResource( 2 )
 [node name="LaserSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 bus = "SFX"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 4 )
