@@ -1,10 +1,6 @@
-# Draws a 2D trail using Godot's `Line2D`.
-#
-# Instantiate `Trail2D` as a child of a moving node to use it. To control the color, width curve,
-# texture, or trail width, use parameters from the `Line2D` class.
 tool
 
-class_name Trail2D
+class_name Estela
 extends Line2D
 
 export var is_emitting := false setget set_emitting
@@ -14,7 +10,7 @@ export var resolution := 5.0
 # Life of each point in seconds before it is deleted.
 export var lifetime := 0.5
 # Maximum number of points allowed on the curve.
-export var max_points := 100
+export var max_points := 100 setget set_max_points
 
 # Optional path to the target node to follow. If not set, the instance follows its parent.
 export var target_path: NodePath
@@ -108,3 +104,6 @@ func set_emitting(emitting: bool) -> void:
 		clear_points()
 		_points_creation_time.clear()
 		_last_point = to_local(target.global_position) + calculate_offset()
+
+func set_max_points(valor: int) -> void:
+	max_points = valor
