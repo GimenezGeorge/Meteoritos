@@ -24,7 +24,7 @@ onready var colisionador:CollisionShape2D = $CollisionShape2D
 func _ready() -> void:
 	controlador_estados(estado_actual)
 	##TODO: Quitar, solo DEBUG
-	controlador_estados(ESTADO.VIVO)
+	#controlador_estados(ESTADO.VIVO)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not esta_input_activo():
