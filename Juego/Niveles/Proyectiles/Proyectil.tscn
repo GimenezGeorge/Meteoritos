@@ -28,4 +28,5 @@ shape = SubResource( 1 )
 position = Vector2( -0.250001, 0.375 )
 scale = Vector2( 1.825, 0.6625 )
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

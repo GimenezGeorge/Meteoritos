@@ -8,6 +8,7 @@ enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
 export var potencia_motor:int = 20
 export var potencia_rotacion:int = 280
 export var estela_maxima:int = 150
+export var hitpoints:float = 15.0
 
 ## Atributos
 var empuje:Vector2 = Vector2.ZERO
@@ -19,6 +20,8 @@ onready var laser:RayoLaser = $LaserBeam2D
 onready var estela:Estela = $EstelaPuntoInicio/Trail2D
 onready var motor_sfx:Motor = $MotorSFX
 onready var colisionador:CollisionShape2D = $CollisionShape2D
+onready var impacto_sfx:AudioStreamPlayer = $ImpactoSFX
+onready var escudo:Escudo = $Escudo
 
 ## Metodos
 func _ready() -> void:
@@ -36,14 +39,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("m_adelante"):
 		estela.set_max_points(estela_maxima)
-		motor_sfx.sonido_on()
 	
 	elif event.is_action_pressed("m_atras"):
 		estela.set_max_points(0)
-		motor_sfx.sonido_on()
 	
-	if (event.is_action_released("m_adelante") or event.is_action_released("m_atras")):
-		motor_sfx.sonido_off()
+	if event.is_action_pressed("escudo") and not escudo.get_esta_activado():
+		escudo.activar()
 
 func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(empuje.rotated(rotation))
@@ -66,7 +67,7 @@ func controlador_estados(nuevo_estado:int) -> void:
 		ESTADO.MUERTO:
 			colisionador.set_deferred("disabled", true)
 			canion.set_puede_disparar(true)
-			Eventos.emit_signal("nave_destruida", global_position, 3)
+			Eventos.emit_signal("nave_destruida", global_position, 2)
 			queue_free()
 		_:
 			printerr("Error de estado")
@@ -86,9 +87,14 @@ func player_input() -> void:
 	empuje = Vector2.ZERO
 	if Input.is_action_pressed("m_adelante"):
 		empuje = Vector2(potencia_motor, 0)
+		motor_sfx.sonido_on()
 	elif Input.is_action_pressed("m_atras"):
 		empuje = Vector2(-potencia_motor, 0)
-	
+		motor_sfx.sonido_on()
+		
+#	if Input.is_action_released("m_adelante") or Input.is_action_released("m_atras"):
+#		motor_sfx.sonido_off()
+
 	# Rotacion
 	dir_rotacion = 0
 	if Input.is_action_pressed("rotar_antih"):
@@ -110,3 +116,10 @@ func destruir() -> void:
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "spawn":
 		controlador_estados(ESTADO.VIVO)
+
+func recibir_danio(danio: float) -> void:
+	hitpoints -= danio
+	if hitpoints <= 0.0:
+		destruir()
+		
+	impacto_sfx.play()
