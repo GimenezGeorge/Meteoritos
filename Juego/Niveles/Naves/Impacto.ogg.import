@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Impacto.ogg-e2067985b7b9d723e46ceb202df2bc34.oggstr"
+
+[deps]
+
+source_file="res://Juego/Niveles/Naves/Impacto.ogg"
+dest_files=[ "res://.import/Impacto.ogg-e2067985b7b9d723e46ceb202df2bc34.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
