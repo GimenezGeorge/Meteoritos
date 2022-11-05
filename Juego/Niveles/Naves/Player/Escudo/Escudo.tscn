@@ -212,11 +212,13 @@ shape = SubResource( 1 )
 
 [node name="SpriteCompleto" type="Sprite" parent="."]
 visible = false
+modulate = Color( 1, 1.1, 0, 1 )
 rotation = 1.5708
 texture = ExtResource( 1 )
 
 [node name="SpriteAbriendo1" type="Sprite" parent="."]
 visible = false
+modulate = Color( 0.92, 1.1, 0, 1 )
 position = Vector2( 12.75, 0.250005 )
 rotation = 1.5708
 scale = Vector2( 1.05639, 1.06019 )
@@ -224,6 +226,7 @@ texture = ExtResource( 2 )
 
 [node name="SpriteAbriendo2" type="Sprite" parent="."]
 visible = false
+modulate = Color( 1.1, 1, 0, 1 )
 position = Vector2( 11, 0 )
 rotation = 1.5708
 texture = ExtResource( 3 )
