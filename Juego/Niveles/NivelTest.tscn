@@ -14,7 +14,7 @@ explosion = ExtResource( 4 )
 meteorito = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 715.125, 912.314 )
+position = Vector2( 1765.75, 981.907 )
 potencia_motor = 55
 potencia_rotacion = 600
 
@@ -26,25 +26,25 @@ position = Vector2( 590, 241.5 )
 position = Vector2( 407, 144 )
 
 [node name="MeteoritoSpawner" parent="." instance=ExtResource( 6 )]
-position = Vector2( 743.07, 53.8783 )
+position = Vector2( 631.952, -330.273 )
 direccion = Vector2( 2, 1 )
 
 [node name="MeteoritoSpawner5" parent="." instance=ExtResource( 6 )]
-position = Vector2( 615.11, -40.4086 )
+position = Vector2( 503.992, -424.56 )
 direccion = Vector2( 2, 1 )
 
 [node name="MeteoritoSpawner6" parent="." instance=ExtResource( 6 )]
-position = Vector2( 781.234, -53.8782 )
+position = Vector2( 670.116, -438.029 )
 direccion = Vector2( 2, 1 )
 
 [node name="MeteoritoSpawner2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1331.24, 87.5522 )
+position = Vector2( 221.13, -705.175 )
 direccion = Vector2( -2, 1 )
 
 [node name="MeteoritoSpawner3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1201.03, 561.234 )
+position = Vector2( 90.92, -231.494 )
 direccion = Vector2( 2, -1 )
 
 [node name="MeteoritoSpawner4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1508.49, 377.2 )
+position = Vector2( 398.38, -415.528 )
 direccion = Vector2( -2, -1 )
