@@ -6,6 +6,7 @@ export var vel_ang_base:float = 3.0
 export var hitpoints_base:float = 10.0
 
 onready var impacto_sfx = $Impacto_SFX
+onready var impacto_anim = $AnimationPlayer
 
 var hitpoints:float
 
@@ -32,6 +33,7 @@ func recibir_danio(danio: float) -> void:
 		destruir()
 		
 	impacto_sfx.play()
+	impacto_anim.play("impacto")
 
 func destruir() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
