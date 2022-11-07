@@ -81,6 +81,7 @@ position = Vector2( 38, 0 )
 
 [node name="EstelaPuntoInicio" type="Position2D" parent="."]
 position = Vector2( -11, 0 )
+z_index = 1
 
 [node name="Trail2D" parent="EstelaPuntoInicio" instance=ExtResource( 6 )]
 points = PoolVector2Array( 0, 0, 60, 0 )
