@@ -1,0 +1,165 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Juego/Meteoritos/MeteoritoSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.gd" type="Script" id=2]
+
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( -2.96881, 543.044 )
+b = Vector2( -2.97736, -536.962 )
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( -2.8775, 543.008 )
+b = Vector2( -2.93994, -537.029 )
+
+[sub_resource type="SegmentShape2D" id=3]
+a = Vector2( 956.997, 3.12158 )
+b = Vector2( -962.872, 3.12158 )
+
+[sub_resource type="SegmentShape2D" id=4]
+a = Vector2( 957.012, 3.01654 )
+b = Vector2( -962.997, 2.96088 )
+
+[sub_resource type="SegmentShape2D" id=5]
+a = Vector2( 0.5, 900.297 )
+b = Vector2( 0.5, -899.5 )
+
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( -0.204346, 901 )
+b = Vector2( 0.474976, -899.263 )
+
+[sub_resource type="SegmentShape2D" id=7]
+a = Vector2( 1399.88, 1 )
+b = Vector2( -1399.51, 1 )
+
+[sub_resource type="SegmentShape2D" id=8]
+a = Vector2( 1399.8, 1 )
+b = Vector2( -1399.78, 1 )
+
+[node name="SectorMeteoritos" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -899.783, 900.297 ],
+"_edit_vertical_guides_": [ -1399.96, 1400.13 ]
+}
+
+[node name="BordesNavePlayer" type="Node2D" parent="."]
+position = Vector2( 2.9967, -2.99658 )
+
+[node name="BordeIzquierdo" type="StaticBody2D" parent="BordesNavePlayer"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordesNavePlayer/BordeIzquierdo"]
+position = Vector2( -960, 0 )
+shape = SubResource( 1 )
+
+[node name="BordeDerecho" type="StaticBody2D" parent="BordesNavePlayer"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordesNavePlayer/BordeDerecho"]
+position = Vector2( 960, 0 )
+shape = SubResource( 2 )
+
+[node name="BordeSuperior" type="StaticBody2D" parent="BordesNavePlayer"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordesNavePlayer/BordeSuperior"]
+position = Vector2( 0, -540 )
+shape = SubResource( 3 )
+
+[node name="BordeInferior" type="StaticBody2D" parent="BordesNavePlayer"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordesNavePlayer/BordeInferior"]
+position = Vector2( 0, 540 )
+shape = SubResource( 4 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="DetectorIzquierdo" type="Area2D" parent="Node2D"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/DetectorIzquierdo"]
+position = Vector2( -1400, 0 )
+shape = SubResource( 5 )
+
+[node name="DetectorDerecho" type="Area2D" parent="Node2D"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/DetectorDerecho"]
+position = Vector2( 1400, 0 )
+shape = SubResource( 6 )
+
+[node name="DetectorSuperior" type="Area2D" parent="Node2D"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/DetectorSuperior"]
+position = Vector2( 0, -900 )
+shape = SubResource( 7 )
+
+[node name="DetectorInferior" type="Area2D" parent="Node2D"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/DetectorInferior"]
+position = Vector2( 0, 900 )
+shape = SubResource( 8 )
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="SpawnCenIz" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -1150, 0 )
+
+[node name="SpawnCenDe" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 1150, 0 )
+
+[node name="SpawnCenSu" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 0, -720 )
+
+[node name="SpawnCenIn" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 0, 720 )
+
+[node name="SpawnSuIz" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -1150, -720 )
+
+[node name="SpawnSuDe" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 1150, -720 )
+
+[node name="SpawnInIz" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -1150, 720 )
+
+[node name="SpawnInDe" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 1150, 720 )
+
+[node name="SpawnSuSI" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -575, -720 )
+
+[node name="SpawnSuSD" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 575, -720 )
+
+[node name="SpawnIzID" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -1150, 375 )
+
+[node name="SpawnIzSD" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -1150, -375 )
+
+[node name="SpawnDeID" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 1150, 375 )
+
+[node name="SpawnDeSD" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 1150, -375 )
+
+[node name="SpawnInII" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( -575, 720 )
+
+[node name="SpawnInID" parent="Spawners" instance=ExtResource( 1 )]
+position = Vector2( 575, 720 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
