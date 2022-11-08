@@ -38,7 +38,7 @@ b = Vector2( -1399.78, 1 )
 [node name="SectorMeteoritos" type="Node2D"]
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_horizontal_guides_": [ -899.783, 900.297 ],
+"_edit_horizontal_guides_": [ -899.783, 900.297, -2.3877 ],
 "_edit_vertical_guides_": [ -1399.96, 1400.13 ]
 }
 
