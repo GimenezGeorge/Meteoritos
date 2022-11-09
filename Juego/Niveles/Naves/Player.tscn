@@ -9,7 +9,7 @@
 [ext_resource path="res://Juego/Niveles/Naves/MotorSFX.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Niveles/Naves/Impacto.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Juego/Niveles/Naves/Player/Escudo/Escudo.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Juego/Niveles/Naves/CameraPlayer.gd" type="Script" id=10]
+[ext_resource path="res://Juego/Niveles/CamaraJuego.gd" type="Script" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 38.2704
