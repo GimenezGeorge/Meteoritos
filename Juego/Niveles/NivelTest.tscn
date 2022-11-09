@@ -48,3 +48,5 @@ numero_peligros = 12
 position = Vector2( 956.008, 539.23 )
 
 [node name="TweenCamara" type="Tween" parent="."]
+
+[connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
