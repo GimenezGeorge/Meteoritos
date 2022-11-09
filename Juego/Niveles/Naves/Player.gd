@@ -9,6 +9,7 @@ export var potencia_motor:int = 20
 export var potencia_rotacion:int = 280
 export var estela_maxima:int = 150
 export var hitpoints:float = 15.0
+export var variacion_zoom:float = 0.1
 
 ## Atributos
 var empuje:Vector2 = Vector2.ZERO
@@ -45,6 +46,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("escudo") and not escudo.get_esta_activado():
 		escudo.activar()
+	
+	if event.is_action_pressed("zoom_in"):
+		controlar_zoom(-variacion_zoom)
+	elif event.is_action_pressed("zoom_out"):
+		controlar_zoom(variacion_zoom)
 
 func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(empuje.rotated(rotation))
@@ -73,6 +79,10 @@ func controlador_estados(nuevo_estado:int) -> void:
 			printerr("Error de estado")
 	
 	estado_actual = nuevo_estado
+
+func controlar_zoom(mod_zoom: float) -> void:
+	zoom.x += mod_zoom
+	zoom.y += mod_zoom
 
 func esta_input_activo() -> bool:
 	if estado_actual in [ESTADO.MUERTO, ESTADO.SPAWN]:
