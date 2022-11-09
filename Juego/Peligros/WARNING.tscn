@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Juego/Peligros/AdvertenciaSFX.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Peligros/Advertencia.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Peligros/AnimationWarning.tscn" type="PackedScene" id=3]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Advertencia" parent="." instance=ExtResource( 2 )]
+
+[node name="AnimationWarning" parent="." instance=ExtResource( 3 )]
+
+[node name="AdvertenciaSFX" parent="." instance=ExtResource( 1 )]

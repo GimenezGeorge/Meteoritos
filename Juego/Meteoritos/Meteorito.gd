@@ -9,13 +9,20 @@ onready var impacto_sfx = $Impacto_SFX
 onready var impacto_anim = $AnimationPlayer
 
 var hitpoints:float
+var esta_en_sector:bool = true setget set_esta_en_sector
+var pos_spawn_original:Vector2
+var vel_spawn_original:Vector2
 
 func _ready() -> void:
 	linear_velocity = vel_lineal_base
 	angular_velocity = vel_ang_base
 
+func set_esta_en_sector(valor: bool) -> void:
+	esta_en_sector = valor
+
 func crear(pos: Vector2, dir: Vector2, tamanio:float) -> void:
 	position = pos
+	pos_spawn_original = position
 	mass *= tamanio
 	$Sprite.scale = Vector2.ONE * tamanio
 	#radio = diametro / 2
@@ -24,8 +31,20 @@ func crear(pos: Vector2, dir: Vector2, tamanio:float) -> void:
 	forma_colision.radius = radio
 	$CollisionShape2D.shape = forma_colision
 	linear_velocity = (vel_lineal_base * dir / tamanio) * aleatorizar_velocidad()
+	#¿Hay que cambiar algo en la línea de arriba?
+	vel_spawn_original = linear_velocity
 	angular_velocity = (vel_ang_base / tamanio) * aleatorizar_velocidad()
 	hitpoints = hitpoints_base * tamanio
+
+func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+	if esta_en_sector:
+		return
+	
+	var mi_transform := state.get_transform()
+	mi_transform.origin = pos_spawn_original
+	linear_velocity = vel_spawn_original
+	state.set_transform(mi_transform)
+	esta_en_sector = true
 
 func recibir_danio(danio: float) -> void:
 	hitpoints -= danio
