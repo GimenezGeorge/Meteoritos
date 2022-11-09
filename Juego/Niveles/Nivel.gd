@@ -11,6 +11,7 @@ onready var contenedor_proyectiles:Node
 onready var contenedor_meteoritos:Node
 onready var contenedor_sector_meteoritos:Node
 onready var camara_nivel:Camera2D = $CameraNivel
+#onready var camara_nivel.zoom:CamaraJuego = $Player/CameraPlayer
 
 var meteoritos_totales:int = 0
 
@@ -19,7 +20,6 @@ func _ready() -> void:
 	crear_contenedores()
 
 func conectar_seniales() -> void:
-# warning-ignore:return_value_discarded
 	Eventos.connect("disparo", self, "_on_disparo")
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 	Eventos.connect("nave_en_sector_peligro", self, "_on_nave_en_sector_peligro")
@@ -86,7 +86,8 @@ func controlar_meteoritos_restantes() -> void:
 			tiempo_transicion_camara * 0.10
 		)
 
-func transicion_camaras(desde: Vector2, hasta: Vector2, camara_actual: Camera2D) -> void:
+# warning-ignore:shadowed_variable
+func transicion_camaras(desde: Vector2, hasta: Vector2, camara_actual: Camera2D, tiempo_transicion_camara) -> void:
 	$TweenCamara.interpolate_property(
 		camara_actual,
 		"global_position",
