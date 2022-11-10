@@ -47,8 +47,6 @@ func _on_nave_destruida(posicion: Vector2, num_explosiones: int) -> void:
 		add_child(new_explosion)
 		yield(get_tree().create_timer(0.6),"timeout")
 
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
 func _on_nave_en_sector_peligro(centro_cam:Vector2, tipo_peligro:String, num_peligros:int) -> void:
 	if tipo_peligro == "Meteorito":
 		crear_sector_meteoritos(centro_cam, num_peligros)
@@ -115,7 +113,6 @@ func _on_meteorito_destruido(pos: Vector2) -> void:
 	add_child(new_explosion)
 	
 	controlar_meteoritos_restantes()
-
 
 func _on_TweenCamara_tween_completed(object: Object, _key: NodePath) -> void:
 	if object.name == "CamaraPlayer":

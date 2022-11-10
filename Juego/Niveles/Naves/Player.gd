@@ -23,6 +23,7 @@ onready var motor_sfx:Motor = $MotorSFX
 onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var impacto_sfx:AudioStreamPlayer = $ImpactoSFX
 onready var escudo:Escudo = $Escudo
+onready var zoom:CamaraJuego = $CameraPlayer
 
 ## Metodos
 func _ready() -> void:

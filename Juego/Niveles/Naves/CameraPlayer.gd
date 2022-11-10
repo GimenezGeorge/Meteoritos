@@ -5,10 +5,10 @@ export var variacion_zoom:float = 0.1
 export var zoom_minimo:float = 0.8
 export var zoom_maximo:float = 1.5
 
-onready var tween_zoom:Tween = $TweenZoom
+#onready var tween_zoom:Tween = $TweenZoom
 
-var zoom_original:Vector2
-var puede_hacer_zoom:bool = true setget set_puede_hacer_zoom
+#var zoom_original:Vector2
+#var puede_hacer_zoom:bool = true setget set_puede_hacer_zoom
 
 func set_puede_hacer_zoom(puede: bool) -> void:
 	puede_hacer_zoom = puede
