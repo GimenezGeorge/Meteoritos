@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/Estacion_Recarga.png" type="Texture" id=1]
+[ext_resource path="res://TemporalAssets/uipack-space/PNG/dotWhite.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 70.0
+height = 164.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 190.024
+
+[node name="EstacionRecarga" type="Node2D"]
+
+[node name="AreaColision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaColision"]
+shape = SubResource( 1 )
+
+[node name="SpriteEstacion" type="Sprite" parent="AreaColision"]
+z_index = 1
+texture = ExtResource( 1 )
+
+[node name="AreaRecarga" type="Area2D" parent="."]
+
+[node name="SpriteZonaRecarga" type="Sprite" parent="AreaRecarga"]
+scale = Vector2( 15, 15 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRecarga"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CargaSFX" type="AudioStreamPlayer2D" parent="."]
+
+[node name="VacioSFX" type="AudioStreamPlayer2D" parent="."]
