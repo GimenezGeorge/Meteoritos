@@ -206,18 +206,23 @@ shape = SubResource( 8 )
 
 [node name="SpawnCenIz" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( -1150, 0 )
+direccion = Vector2( 2, 0 )
 
 [node name="SpawnCenDe" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 1150, 0 )
+direccion = Vector2( 1, 0 )
 
 [node name="SpawnCenSu" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 0, -720 )
+direccion = Vector2( 1, 0 )
 
 [node name="SpawnCenIn" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 0, 720 )
+direccion = Vector2( 1, 0 )
 
 [node name="SpawnSuIz" parent="Spawners" instance=ExtResource( 1 )]
-position = Vector2( -1150, -720 )
+position = Vector2( -1152.83, -722.828 )
+direccion = Vector2( 2, 1 )
 
 [node name="SpawnSuDe" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 1150, -720 )
@@ -225,35 +230,43 @@ direccion = Vector2( -2, 1 )
 
 [node name="SpawnInIz" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( -1150, 720 )
+direccion = Vector2( 2, -1 )
 
 [node name="SpawnInDe" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 1150, 720 )
-direccion = Vector2( 2, -1 )
+direccion = Vector2( -2, -1 )
 
 [node name="SpawnSuSI" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( -575, -720 )
+direccion = Vector2( 2, 1 )
 
 [node name="SpawnSuSD" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 575, -720 )
+direccion = Vector2( -2, 1 )
 
 [node name="SpawnIzID" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( -1150, 375 )
+direccion = Vector2( 2, -1 )
 
 [node name="SpawnIzSD" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( -1150, -375 )
+direccion = Vector2( 2, 1 )
 
 [node name="SpawnDeID" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 1150, 375 )
+direccion = Vector2( -2, -1 )
 
 [node name="SpawnDeSD" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 1138.69, -375 )
-direccion = Vector2( 2, -1 )
+direccion = Vector2( -2, 1 )
 
 [node name="SpawnInII" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( -575, 720 )
+direccion = Vector2( 2, -1 )
 
 [node name="SpawnInID" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 575, 720 )
+direccion = Vector2( -2, -1 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
