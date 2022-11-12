@@ -37,10 +37,9 @@ b = Vector2( -1399.51, 1 )
 a = Vector2( 1399.8, 1 )
 b = Vector2( -1399.78, 1 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "advertencia"
 length = 5.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Advertencia:visible")
 tracks/0/interp = 1
@@ -104,8 +103,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "default"
+[sub_resource type="Animation" id=10]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Advertencia:visible")
@@ -223,12 +221,14 @@ position = Vector2( -1150, -720 )
 
 [node name="SpawnSuDe" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 1150, -720 )
+direccion = Vector2( -2, 1 )
 
 [node name="SpawnInIz" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( -1150, 720 )
 
 [node name="SpawnInDe" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( 1150, 720 )
+direccion = Vector2( 2, -1 )
 
 [node name="SpawnSuSI" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( -575, -720 )
@@ -246,7 +246,8 @@ position = Vector2( -1150, -375 )
 position = Vector2( 1150, 375 )
 
 [node name="SpawnDeSD" parent="Spawners" instance=ExtResource( 1 )]
-position = Vector2( 1150, -375 )
+position = Vector2( 1138.69, -375 )
+direccion = Vector2( 2, -1 )
 
 [node name="SpawnInII" parent="Spawners" instance=ExtResource( 1 )]
 position = Vector2( -575, 720 )
@@ -259,14 +260,14 @@ position = Vector2( 575, 720 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Advertencia" parent="CanvasLayer" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0.2 )
+visible = false
 
 [node name="AdvertenciaSFX" parent="." instance=ExtResource( 4 )]
-volume_db = -8.1568
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/advertencia = SubResource( 10 )
-anims/default = SubResource( 9 )
+autoplay = "advertencia"
+anims/advertencia = SubResource( 9 )
+anims/default = SubResource( 10 )
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 

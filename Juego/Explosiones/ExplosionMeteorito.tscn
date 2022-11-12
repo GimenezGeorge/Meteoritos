@@ -455,10 +455,10 @@ tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, true ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("mediopiedra2:visible")
@@ -467,10 +467,10 @@ tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false, true, true ]
 }
 tracks/20/type = "value"
 tracks/20/path = NodePath("minipiedrita1:visible")
@@ -479,10 +479,10 @@ tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false, true, true ]
 }
 tracks/21/type = "value"
 tracks/21/path = NodePath("minipiedrita2:visible")
@@ -494,7 +494,7 @@ tracks/21/keys = {
 "times": PoolRealArray( 0, 0.1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ false, true, true ]
 }
 tracks/22/type = "value"
 tracks/22/path = NodePath("pequedrita1:visible")
@@ -506,7 +506,7 @@ tracks/22/keys = {
 "times": PoolRealArray( 0, 0.2, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ false, true, true ]
 }
 tracks/23/type = "value"
 tracks/23/path = NodePath("pequedrita2:visible")
@@ -518,7 +518,7 @@ tracks/23/keys = {
 "times": PoolRealArray( 0, 0.1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ false, true, true ]
 }
 
 [node name="ExplosionMeteorito" type="Node2D"]

@@ -11,7 +11,6 @@ onready var contenedor_proyectiles:Node
 onready var contenedor_meteoritos:Node
 onready var contenedor_sector_meteoritos:Node
 onready var camara_nivel:Camera2D = $CameraNivel
-#onready var camara_nivel.zoom:CamaraJuego = $Player/CameraPlayer
 
 var meteoritos_totales:int = 0
 
@@ -20,10 +19,15 @@ func _ready() -> void:
 	crear_contenedores()
 
 func conectar_seniales() -> void:
+# warning-ignore:return_value_discarded
 	Eventos.connect("disparo", self, "_on_disparo")
+# warning-ignore:return_value_discarded
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
+# warning-ignore:return_value_discarded
 	Eventos.connect("nave_en_sector_peligro", self, "_on_nave_en_sector_peligro")
+# warning-ignore:return_value_discarded
 	Eventos.connect("spawn_meteorito", self, "_on_spawn_meteoritos")
+# warning-ignore:return_value_discarded
 	Eventos.connect("meteorito_destruido", self, "_on_meteorito_destruido")
 
 func crear_contenedores() -> void:
@@ -58,7 +62,6 @@ func crear_sector_meteoritos(centro_camara:Vector2, numero_peligros:int) -> void
 	var new_sector_meteoritos:SectorMeteoritos = sector_meteoritos.instance()
 	new_sector_meteoritos.crear(centro_camara, numero_peligros)
 	camara_nivel.global_position = centro_camara
-	#camara_nivel.current = true
 	contenedor_sector_meteoritos.add_child(new_sector_meteoritos)
 	camara_nivel.zoom = $Player/CameraPlayer.zoom
 	camara_nivel.devolver_zoom_original()
@@ -85,13 +88,13 @@ func controlar_meteoritos_restantes() -> void:
 		)
 
 # warning-ignore:shadowed_variable
-func transicion_camaras(desde: Vector2, hasta: Vector2, camara_actual: Camera2D, tiempo_transicion_camara) -> void:
+func transicion_camaras(desde: Vector2, hasta: Vector2, camara_actual: Camera2D, tiempo_transicion: float) -> void:
 	$TweenCamara.interpolate_property(
 		camara_actual,
 		"global_position",
 		desde,
 		hasta,
-		tiempo_transicion_camara,
+		tiempo_transicion,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
 	)

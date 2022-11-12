@@ -4,8 +4,8 @@
 [ext_resource path="res://Juego/Niveles/Proyectiles/Proyectil.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=3]
 [ext_resource path="res://Juego/Explosiones/Explosion.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Juego/Niveles/Naves/Enemigodummy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Juego/Niveles/CamaraJuego.gd" type="Script" id=6]
 [ext_resource path="res://Juego/Meteoritos/Meteorito.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Explosiones/ExplosionMeteorito.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Juego/Niveles/Fondos/fondo_espacio.png" type="Texture" id=9]
@@ -16,21 +16,16 @@ script = ExtResource( 3 )
 explosion = ExtResource( 4 )
 meteorito = ExtResource( 7 )
 explosion_meteorito = ExtResource( 8 )
-sector_meteoritos = ExtResource( 6 )
+sector_meteoritos = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 961.966, 549.241 )
+position = Vector2( 1261.83, 539.162 )
 potencia_motor = 55
 potencia_rotacion = 600
 
 [node name="Area2D" parent="." instance=ExtResource( 2 )]
 visible = false
 position = Vector2( 590, 241.5 )
-
-[node name="Enemigodummy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 346.679, 791.66 )
-z_index = 2
-z_as_relative = false
 
 [node name="fondo_espacio" type="Sprite" parent="."]
 position = Vector2( 963.407, 543.237 )
@@ -41,11 +36,14 @@ texture = ExtResource( 9 )
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 11 )]
-position = Vector2( 1517.39, 450.693 )
+position = Vector2( 713.56, 556.526 )
 numero_peligros = 12
 
 [node name="CameraNivel" type="Camera2D" parent="."]
 position = Vector2( 956.008, 539.23 )
+script = ExtResource( 6 )
+
+[node name="TweenZoom" type="Tween" parent="CameraNivel"]
 
 [node name="TweenCamara" type="Tween" parent="."]
 

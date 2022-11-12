@@ -23,7 +23,6 @@ onready var motor_sfx:Motor = $MotorSFX
 onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var impacto_sfx:AudioStreamPlayer = $ImpactoSFX
 onready var escudo:Escudo = $Escudo
-onready var zoom:CamaraJuego = $CameraPlayer
 
 ## Metodos
 func _ready() -> void:
@@ -48,11 +47,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escudo") and not escudo.get_esta_activado():
 		escudo.activar()
 	
-	if event.is_action_pressed("zoom_in"):
-		controlar_zoom(-variacion_zoom)
-	elif event.is_action_pressed("zoom_out"):
-		controlar_zoom(variacion_zoom)
-
 func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(empuje.rotated(rotation))
 	apply_torque_impulse(dir_rotacion * potencia_rotacion)
@@ -80,10 +74,6 @@ func controlador_estados(nuevo_estado:int) -> void:
 			printerr("Error de estado")
 	
 	estado_actual = nuevo_estado
-
-func controlar_zoom(mod_zoom: float) -> void:
-	zoom.x += mod_zoom
-	zoom.y += mod_zoom
 
 func esta_input_activo() -> bool:
 	if estado_actual in [ESTADO.MUERTO, ESTADO.SPAWN]:
