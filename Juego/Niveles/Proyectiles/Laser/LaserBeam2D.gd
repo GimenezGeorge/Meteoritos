@@ -18,6 +18,7 @@ export var radio_desgaste:float = -1.0
 # It plays appearing and disappearing animations when it's not animating.
 # See `appear()` and `disappear()` for more information.
 var is_casting := false setget set_is_casting
+var energia_original:float
 
 onready var fill := $FillLine2D
 onready var tween := $Tween
@@ -30,6 +31,7 @@ onready var line_width: float = fill.width
 
 
 func _ready() -> void:
+	energia_original = energia
 	set_physics_process(false)
 	fill.points[1] = Vector2.ZERO
 
@@ -86,7 +88,10 @@ func cast_beam(delta: float) -> void:
 
 func controlar_energia(consumo: float) -> void:
 	energia += consumo
-	print("Energia Laser: ", energia)
+	if energia > energia_original:
+		energia = energia_original
+	
+#	print("Energia Laser: ", energia)
 	
 func appear() -> void:
 	if tween.is_active():
