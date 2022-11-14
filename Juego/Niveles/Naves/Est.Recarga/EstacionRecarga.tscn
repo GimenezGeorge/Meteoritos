@@ -276,7 +276,7 @@ shape = SubResource( 1 )
 [node name="AreaRecarga" type="Area2D" parent="."]
 space_override = 1
 gravity_point = true
-gravity_distance_scale = 990.0
+gravity = 1000.0
 collision_layer = 0
 
 [node name="SpriteZonaRecarga" type="Sprite" parent="AreaRecarga"]
@@ -295,3 +295,7 @@ anims/zona-activa = SubResource( 4 )
 [node name="CargaSFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="VacioSFX" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="AreaColision" to="." method="_on_AreaColision_body_entered"]
+[connection signal="body_entered" from="AreaRecarga" to="." method="_on_AreaRecarga_body_entered"]
+[connection signal="body_exited" from="AreaRecarga" to="." method="_on_AreaRecarga_body_exited"]
