@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cargando_sfx.ogg-81c538c6a09c50aa06c32a2e72410e85.oggstr"
+
+[deps]
+
+source_file="res://Juego/Niveles/Naves/Est.Recarga/cargando_sfx.ogg"
+dest_files=[ "res://.import/cargando_sfx.ogg-81c538c6a09c50aa06c32a2e72410e85.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

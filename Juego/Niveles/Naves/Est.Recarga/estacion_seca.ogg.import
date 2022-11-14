@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/estacion_seca.ogg-a34a99f0db95fe7d101d8b54aa794907.oggstr"
+
+[deps]
+
+source_file="res://Juego/Niveles/Naves/Est.Recarga/estacion_seca.ogg"
+dest_files=[ "res://.import/estacion_seca.ogg-a34a99f0db95fe7d101d8b54aa794907.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
