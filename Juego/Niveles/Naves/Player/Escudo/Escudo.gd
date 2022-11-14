@@ -1,7 +1,7 @@
 class_name Escudo
 extends Area2D
 
-export var energia:float = 6.0
+export var energia:float = 9.0
 export var radio_desgaste:float = -1.6
 
 var esta_activado:bool = false setget ,get_esta_activado

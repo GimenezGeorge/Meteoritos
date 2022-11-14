@@ -240,3 +240,4 @@ anims/default = SubResource( 4 )
 stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
