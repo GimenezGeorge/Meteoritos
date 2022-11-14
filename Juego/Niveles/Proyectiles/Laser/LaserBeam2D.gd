@@ -60,6 +60,12 @@ func set_is_casting(cast: bool) -> void:
 # Controls the emission of particles and extends the Line2D to `cast_to` or the ray's 
 # collision point, whichever is closest.
 func cast_beam(delta: float) -> void:
+	if energia <= 0.0:
+		set_is_casting(false)
+		return
+	
+	controlar_energia(radio_desgaste * delta)
+	
 	var cast_point := cast_to
 
 	force_raycast_update()
@@ -76,12 +82,12 @@ func cast_beam(delta: float) -> void:
 	beam_particles.position = cast_point * 0.5
 	beam_particles.process_material.emission_box_extents.x = cast_point.length() * 0.5
 
-	if energia <= 0.0:
-		set_is_casting(false)
-		return
-	
-	energia += radio_desgaste * delta
+	#energia += radio_desgaste * delta
 
+func controlar_energia(consumo: float) -> void:
+	energia += consumo
+	print("Energia Laser: ", energia)
+	
 func appear() -> void:
 	if tween.is_active():
 		tween.stop_all()

@@ -1,7 +1,7 @@
 class_name Escudo
 extends Area2D
 
-export var energia:float = 8.0
+export var energia:float = 6.0
 export var radio_desgaste:float = -1.6
 
 var esta_activado:bool = false setget ,get_esta_activado
@@ -11,6 +11,7 @@ func get_esta_activado() -> bool:
 	
 func _process(delta: float) -> void:
 	energia += radio_desgaste * delta
+	controlar_energia(radio_desgaste * delta)
 	
 	if energia <= 0.0:
 		desactivar()
@@ -21,6 +22,12 @@ func _ready() -> void:
 	
 func controlar_colisionador(esta_desactivado: bool) -> void:
 	$CollisionShape2D.set_deferred("disabled", esta_desactivado)
+
+func controlar_energia(consumo: float) -> void:
+	energia += consumo
+	print("Energia Escudo: ", energia)
+	if energia <= 0.0:
+		desactivar()
 
 func activar() -> void:
 	if energia <= 0.0:
