@@ -28,8 +28,6 @@ func controlar_colisionador(esta_desactivado: bool) -> void:
 func controlar_energia(consumo: float) -> void:
 	energia += consumo
 	
-#	print("Energia Escudo: ", energia)
-	
 	if energia > energia_original:
 		energia = energia_original
 	elif energia <= 0.0:
@@ -48,6 +46,7 @@ func desactivar() -> void:
 	esta_activado = false
 	controlar_colisionador(true)
 	$AnimationPlayer.play_backwards("activando")
+	$AudioStreamPlayer.stop()
 
 ## Señales internas
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:

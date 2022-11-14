@@ -91,8 +91,6 @@ func controlar_energia(consumo: float) -> void:
 	if energia > energia_original:
 		energia = energia_original
 	
-#	print("Energia Laser: ", energia)
-	
 func appear() -> void:
 	if tween.is_active():
 		tween.stop_all()

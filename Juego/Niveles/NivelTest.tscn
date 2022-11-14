@@ -20,7 +20,7 @@ explosion_meteorito = ExtResource( 8 )
 sector_meteoritos = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1261.83, 539.162 )
+position = Vector2( 1594.45, 871.781 )
 potencia_motor = 55
 potencia_rotacion = 600
 
@@ -49,7 +49,6 @@ script = ExtResource( 6 )
 [node name="TweenCamara" type="Tween" parent="."]
 
 [node name="EstacionRecarga" parent="." instance=ExtResource( 10 )]
-position = Vector2( 347.738, 332.619 )
-scale = Vector2( 1.7, 1.7 )
+position = Vector2( 390.575, 400.655 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]

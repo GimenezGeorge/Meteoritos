@@ -274,6 +274,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="AreaRecarga" type="Area2D" parent="."]
+scale = Vector2( 2, 2 )
 space_override = 1
 gravity_point = true
 gravity = 1000.0

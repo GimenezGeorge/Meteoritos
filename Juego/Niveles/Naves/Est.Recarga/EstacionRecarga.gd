@@ -13,8 +13,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	energia -= radio_energia_entregada
 	
-#	print("Energia Estacion: ", energia)
-	
 	if event.is_action("rec_escudo"):
 		nave_player.get_escudo().controlar_energia(radio_energia_entregada)
 	elif event.is_action("rec_laser"):
@@ -27,11 +25,13 @@ func _on_AreaColision_body_entered(body: Node) -> void:
 func _on_AreaRecarga_body_entered(body: Node) -> void:
 	if body is Player:
 		nave_player = body
+		player_en_zona = true
 	
 	body.set_gravity_scale(0.1)
 
 func _on_AreaRecarga_body_exited(body: Node) -> void:
 	body.set_gravity_scale(0.0)
+	player_en_zona = false
 
 func puede_recargar(event: InputEvent) -> bool:
 	var hay_input = event.is_action("rec_escudo") or event.is_action("rec_laser")
