@@ -42,72 +42,89 @@ script = ExtResource( 6 )
 
 [node name="TweenCamara" type="Tween" parent="."]
 
-[node name="EstacionRecarga" parent="." instance=ExtResource( 10 )]
-position = Vector2( 390.575, 400.655 )
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 256, 256 )
 
 [node name="fondo_espacio" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 654.861, 129.648 )
+position = Vector2( -109.139, 129.648 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 1171.58, 129.648 )
+position = Vector2( 654.861, 129.648 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 134.577, 639.243 )
+position = Vector2( -108.139, -638.352 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 651.298, 639.243 )
+position = Vector2( 654.861, -638.352 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio5" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 127.45, -387.073 )
+position = Vector2( 654.861, 897.648 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio6" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 138.14, 126.085 )
+position = Vector2( -108.139, 897.648 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio7" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( -385.708, -390.636 )
+position = Vector2( 1422.86, -638.352 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio8" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( -389.272, 126.085 )
+position = Vector2( 1422.86, 129.648 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio9" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( -385.708, 642.806 )
+position = Vector2( 1422.86, 897.648 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio10" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 647.734, -379.945 )
+position = Vector2( -873.139, -638.352 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio11" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 1164.46, -383.509 )
+position = Vector2( -873.139, 129.648 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio12" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( -396.399, 1155.96 )
+position = Vector2( -873.139, 897.648 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio13" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 131.013, 1152.4 )
+position = Vector2( 2190.86, 895.648 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio14" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 654.862, 1159.53 )
+position = Vector2( 2190.86, 127.648 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="fondo_espacio15" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 1175.15, 646.37 )
+position = Vector2( 2191.13, -636.492 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
+
+[node name="ContenedorEstaciones" type="Node" parent="."]
+
+[node name="EstacionRecarga" parent="ContenedorEstaciones" instance=ExtResource( 10 )]
+position = Vector2( 390.575, 400.655 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
