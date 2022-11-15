@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
+[ext_resource path="res://Juego/Niveles/Naves/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Proyectiles/Proyectil.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=3]
 [ext_resource path="res://Juego/Explosiones/Explosion.tscn" type="PackedScene" id=4]
@@ -120,5 +121,8 @@ texture = ExtResource( 9 )
 
 [node name="EstacionRecarga" parent="ContenedorEstaciones" instance=ExtResource( 10 )]
 position = Vector2( 390.575, 400.655 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 664.497, 152.655 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
