@@ -19,6 +19,7 @@ explosion = ExtResource( 4 )
 meteorito = ExtResource( 7 )
 explosion_meteorito = ExtResource( 8 )
 sector_meteoritos = ExtResource( 5 )
+enemigo_interceptor = ExtResource( 12 )
 
 [node name="Area2D" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -126,8 +127,11 @@ position = Vector2( 1676.92, 815.966 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 664.497, 152.655 )
 
-[node name="EnemigoBase" parent="." instance=ExtResource( 12 )]
-position = Vector2( 853.071, 80.8172 )
-hitpoints = 20.0
+[node name="TriggersInterceptores" type="Node" parent="."]
+
+[node name="SectorDePeligro" parent="TriggersInterceptores" instance=ExtResource( 11 )]
+position = Vector2( 2216.77, -543.099 )
+tipo_peligro = "Enemigo"
+numero_peligros = 5
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]

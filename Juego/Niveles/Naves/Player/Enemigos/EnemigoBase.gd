@@ -3,6 +3,7 @@ extends NaveBase
 
 ## Atributos
 var player_objetivo:Player = null
+var dir_player:Vector2
 
 ## Metodos
 func _ready() -> void:
@@ -22,7 +23,7 @@ func _on_nave_destruida(nave: NaveBase, _posicion, _explosiones) -> void:
 
 func rotar_hacia_player() -> void:
 	if player_objetivo:
-		var dir_player:Vector2 = player_objetivo.global_position - global_position
+		dir_player = player_objetivo.global_position - global_position
 		rotation = dir_player.angle()
 
 ## Señales Internas
