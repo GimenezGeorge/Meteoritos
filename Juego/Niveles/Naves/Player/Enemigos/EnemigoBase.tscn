@@ -154,6 +154,7 @@ physics_material_override = SubResource( 1 )
 contacts_reported = 2
 contact_monitor = true
 script = ExtResource( 5 )
+hitpoints = null
 
 [node name="Sprite" parent="." index="0"]
 visible = false
