@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impacto_base_enemiga.ogg-4a0c46691e112805801f4138f1d93562.oggstr"
+
+[deps]
+
+source_file="res://Juego/Niveles/Naves/Est.Recarga/impacto_base_enemiga.ogg"
+dest_files=[ "res://.import/impacto_base_enemiga.ogg-4a0c46691e112805801f4138f1d93562.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
