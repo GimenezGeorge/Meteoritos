@@ -148,6 +148,8 @@ radius = 332.456
 radius = 835.434
 
 [node name="EnemigoBase" instance=ExtResource( 1 )]
+z_index = 30
+z_as_relative = false
 collision_layer = 2
 collision_mask = 11
 physics_material_override = SubResource( 1 )
