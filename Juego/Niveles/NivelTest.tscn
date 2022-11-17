@@ -134,7 +134,7 @@ numero_peligros = 5
 position = Vector2( 1676.92, 815.966 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -796.575, 380.725 )
+position = Vector2( 696.569, -93.2324 )
 
 [node name="ContenedorBasesEnemigas" type="Node" parent="."]
 
