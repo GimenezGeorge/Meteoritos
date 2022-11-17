@@ -80,7 +80,7 @@ func destruir() -> void:
 		$Sprites/Parte1.global_position
 	]
 	
-	Eventos.emit_signal("base_destruida", posicion_partes)
+	Eventos.emit_signal("base_destruida", self, posicion_partes)
 	queue_free()
 
 func _on_AreaColision_body_entered(body: Node) -> void:
