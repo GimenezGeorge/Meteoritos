@@ -27,6 +27,17 @@ func recibir_danio(danio:float) -> void:
 	
 	impacto_sfx.play()
 
+func destruir() -> void:
+	var posicion_partes = [
+		$Sprites/Parte2.global_position,
+		$Sprites/Parte3.global_position,
+		$Sprites/Parte4.global_position,
+		$Sprites/Parte1.global_position
+	]
+	
+	Eventos.emit_signal("base_destruida", posicion_partes)
+	queue_free()
+
 func _on_AreaColision_body_entered(body: Node) -> void:
 	if body.has_method("destruir"):
 		body.destruir()
