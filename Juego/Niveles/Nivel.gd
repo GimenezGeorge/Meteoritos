@@ -35,6 +35,8 @@ func conectar_seniales() -> void:
 	Eventos.connect("meteorito_destruido", self, "_on_meteorito_destruido")
 # warning-ignore:return_value_discarded
 	Eventos.connect("base_destruida", self, "_on_base_destruida")
+# warning-ignore:return_value_discarded
+	Eventos.connect("spawn_orbital", self, "_on_spawn_orbital")
 
 func crear_contenedores() -> void:
 	contenedor_proyectiles = Node.new()
@@ -157,6 +159,9 @@ func _on_spawn_meteoritos(pos_spawn: Vector2, dir_meteorito: Vector2, tamanio: f
 		tamanio
 	)
 	contenedor_meteoritos.add_child(new_meteorito)
+
+func _on_spawn_orbital(enemigo: EnemigoOrbital) -> void:
+	contenedor_enemigos.add_child(enemigo)
 
 func crear_posicion_aleatoria(rango_horizontal: float, rango_vertical: float) -> Vector2:
 	randomize()
