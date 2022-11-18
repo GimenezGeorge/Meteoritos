@@ -59,7 +59,7 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 	if nave is Player:
 		transicion_camaras(
 			posicion,
-			posicion + crear_posicion_aleatoria(-200.0, 200.0),
+			posicion + crear_posicion_aleatoria(200.0, 200.0),
 			camara_nivel,
 			tiempo_transicion_camara
 		)
@@ -73,6 +73,7 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 		add_child(new_explosion)
 		yield(get_tree().create_timer(0.6),"timeout")
 
+# warning-ignore:unused_argument
 func _on_base_destruida(pos_partes: Array) -> void:
 	for posicion in pos_partes:
 		crear_explosion(posicion)

@@ -50,9 +50,12 @@ func deteccion_cuadrante() -> Vector2:
 	elif abs(angulo_player) > 45.0 and abs(angulo_player) <= 135.0:
 		#Player entra por arriba o por abajo
 		if sign(angulo_player) > 0:
-			#Player entra por arriba o por abajo
+			#Player entra por abajo
 			return $PosicionesSpawn/Sur.position
-			
+		else:
+			#Player entra por arriba
+			return $PosicionesSpawn/Norte.position
+		
 	return $PosicionesSpawn/Norte.position
 
 func elegir_animacion_aleatoria() -> String:
@@ -73,13 +76,14 @@ func recibir_danio(danio:float) -> void:
 	impacto_sfx.play()
 
 func destruir() -> void:
+#	print("HOLAAA")
 	var posicion_partes = [
 		$Sprites/Parte2.global_position,
 		$Sprites/Parte3.global_position,
 		$Sprites/Parte4.global_position,
 		$Sprites/Parte1.global_position
 	]
-	
+
 	Eventos.emit_signal("base_destruida", self, posicion_partes)
 	queue_free()
 
@@ -92,9 +96,9 @@ func _on_VisibilityNotifier2D_screen_entered() -> void:
 	$VisibilityNotifier2D.queue_free()
 	spawnear_orbital()
 
-	var new_orbital:EnemigoOrbital = orbital.instance()
-	new_orbital.crear(
-		global_position + $PosicionesSpawn/Norte.global_position,
-		self
-	)
-	Eventos.emit_signal("spawn_orbital", new_orbital)
+#	var new_orbital:EnemigoOrbital = orbital.instance()
+#	new_orbital.crear(
+#		global_position + $PosicionesSpawn/Norte.global_position,
+#		self
+#	)
+#	Eventos.emit_signal("spawn_orbital", new_orbital)
