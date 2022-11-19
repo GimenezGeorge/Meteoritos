@@ -8,6 +8,7 @@ export var sector_meteoritos:PackedScene = null
 export var tiempo_transicion_camara:float = 2.0
 export var enemigo_interceptor:PackedScene = null
 export var rele_masa:PackedScene = null
+export var tiempo_limite:int = 10
 
 onready var contenedor_proyectiles:Node
 onready var contenedor_meteoritos:Node
@@ -15,6 +16,7 @@ onready var contenedor_enemigos:Node
 onready var contenedor_sector_meteoritos:Node
 #onready var contenedor_bases_enemigas:Node
 onready var camara_nivel:Camera2D = $CameraNivel
+onready var actualizador_timer:Timer = $ActualizadorTimer
 
 var meteoritos_totales:int = 0
 var numero_bases_enemigas = 0
@@ -22,10 +24,12 @@ var player:Player = null
 
 func _ready() -> void:
 	Eventos.emit_signal("nivel_iniciado")
+	Eventos.emit_signal("actualizar_tiempo", tiempo_limite)
 	conectar_seniales()
 	crear_contenedores()
 	numero_bases_enemigas = contabilizar_bases_enemigas()
 	player = DatosJuego.get_player_actual()
+	actualizador_timer.start()
 
 func conectar_seniales() -> void:
 # warning-ignore:return_value_discarded
@@ -72,7 +76,7 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 			tiempo_transicion_camara
 		)
 		$RestartTimer.start()
-	crear_explosion(posicion, num_explosiones, 0.6, Vector2(100.0, 50.0))
+	crear_explosion(posicion, 1.0, num_explosiones, 0.6, Vector2(100.0, 50.0))
 	
 # warning-ignore:unused_variable
 	for i in range(num_explosiones):
@@ -93,6 +97,7 @@ func _on_base_destruida(base: Node2D, pos_partes: Array) -> void:
 
 func crear_explosion(
 	posicion: Vector2,
+	escala: float = explosion.scale(),
 	numero: int = 1,
 	intervalo: float = 0.0,
 	rangos_aleatorios: Vector2 = Vector2(0.0, 0.0)
@@ -200,6 +205,17 @@ func _on_meteorito_destruido(pos: Vector2) -> void:
 	
 	controlar_meteoritos_restantes()
 
+func destruir_nivel() -> void:
+# warning-ignore:narrowing_conversion
+	crear_explosion(
+		player.global_position,
+		8.0,
+		2,
+		1.5,
+		Vector2(300.0, 200.0)
+	)
+	player.destruir()
+
 func _on_TweenCamara_tween_completed(object: Object, _key: NodePath) -> void:
 	if object.name == "CamaraPlayer":
 		object.global_position = $Player.global_position
@@ -209,3 +225,9 @@ func _on_RestartTimer_timeout() -> void:
 	yield(get_tree().create_timer(1.0), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
+
+func _on_ActualizadorTimer_timeout() -> void:
+	tiempo_limite -= 1
+	Eventos.emit_signal("actualizar_tiempo", tiempo_limite)
+	if tiempo_limite == 0:
+		destruir_nivel()

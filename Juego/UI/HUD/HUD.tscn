@@ -151,5 +151,21 @@ margin_bottom = 0.0
 text = "Meteoritos Restantes "
 autowrap = true
 
+[node name="InfoTiempoRestante" parent="." instance=ExtResource( 4 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -355.0
+margin_right = 0.0
+margin_bottom = 167.0
+auto_ocultar = true
+
+[node name="Label" parent="InfoTiempoRestante" index="1"]
+text = "Tiempo Restante
+MM:SS"
+
+[node name="AutoOcultarTimer" parent="InfoTiempoRestante" index="2"]
+one_shot = false
+
 [editable path="InfoZonaRecarga"]
 [editable path="InfoMeteoritos"]
+[editable path="InfoTiempoRestante"]
