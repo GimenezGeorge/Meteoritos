@@ -97,13 +97,15 @@ func _on_base_destruida(base: Node2D, pos_partes: Array) -> void:
 
 func crear_explosion(
 	posicion: Vector2,
-	escala: float = explosion.scale(),
+	escala: float = 0.0,
 	numero: int = 1,
 	intervalo: float = 0.0,
 	rangos_aleatorios: Vector2 = Vector2(0.0, 0.0)
 	) -> void:
 	for _i in range(numero):
 		var new_explosion:Node2D = explosion.instance()
+		new_explosion.scale.x = escala
+		new_explosion.scale.y = escala
 		new_explosion.global_position = posicion + crear_posicion_aleatoria(
 			rangos_aleatorios.x,
 			rangos_aleatorios.y
