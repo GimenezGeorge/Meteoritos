@@ -99,7 +99,7 @@ func crear_explosion(
 	posicion: Vector2,
 	escala: float = 0.0,
 	numero: int = 1,
-	intervalo: float = 0.0,
+	intervalo: float = 0.8,
 	rangos_aleatorios: Vector2 = Vector2(0.0, 0.0)
 	) -> void:
 	for _i in range(numero):
