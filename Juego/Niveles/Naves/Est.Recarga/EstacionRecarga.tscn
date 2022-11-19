@@ -10,7 +10,7 @@
 radius = 70.0
 height = 164.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "default"
 length = 0.001
 tracks/0/type = "value"
@@ -277,7 +277,7 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "zona-activa"
-anims/default = SubResource( 4 )
+anims/default = SubResource( 2 )
 anims/zona-activa = SubResource( 3 )
 
 [node name="CargaSFX" type="AudioStreamPlayer2D" parent="."]

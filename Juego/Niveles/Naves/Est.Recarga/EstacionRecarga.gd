@@ -29,10 +29,12 @@ func _on_AreaRecarga_body_entered(body: Node) -> void:
 	if body is Player:
 		nave_player = body
 		player_en_zona = true
+		Eventos.emit_signal("detecto_zona_recarga", true)
 
 # warning-ignore:unused_argument
 func _on_AreaRecarga_body_exited(body: Node) -> void:
 	player_en_zona = false
+	Eventos.emit_signal("detecto_zona_recarga", false)
 
 func puede_recargar(event: InputEvent) -> bool:
 	var hay_input = event.is_action("rec_escudo") or event.is_action("rec_laser")

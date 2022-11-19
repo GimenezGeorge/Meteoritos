@@ -18,3 +18,5 @@ signal spawn_orbital(orbital)
 signal nivel_iniciado()
 # warning-ignore:unused_signal
 signal nivel_terminado()
+# warning-ignore:unused_signal
+signal detecto_zona_recarga()
