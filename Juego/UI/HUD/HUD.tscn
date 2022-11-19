@@ -215,6 +215,7 @@ anchor_bottom = 1.0
 margin_top = -147.0
 margin_right = 367.0
 margin_bottom = 0.0
+auto_ocultar = true
 
 [node name="Label" parent="InfoMeteoritos" index="1"]
 text = "Meteoritos Restantes "

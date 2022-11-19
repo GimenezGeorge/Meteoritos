@@ -7,8 +7,6 @@ onready var info_tiempo_restante:ContenedorInformacion = $InfoTiempoRestante
 onready var info_laser:ContenedorInformacionEnergia = $InfoLaser
 onready var info_escudo:ContenedorInformacionEnergia = $InfoEscudo
 
-#func set_auto_ocultar() -> Timer:
-#	$AutoOcultarTimer.ocultar_suavizado()
 
 func _ready() -> void:
 	conectar_seniales()

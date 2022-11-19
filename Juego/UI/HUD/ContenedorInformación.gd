@@ -7,7 +7,11 @@ onready var texto_contenedor:Label = $Label
 onready var auto_ocultar_timer:Timer = $AutoOcultarTimer
 onready var animaciones:AnimationPlayer = $AnimationPlayer
 
+var ocultar_timer:bool = true setget set_auto_ocultar
 var esta_activo:bool = true setget set_esta_activo
+
+func set_auto_ocultar(valor: bool) -> void:
+	auto_ocultar = valor
 
 func set_esta_activo(valor: bool) -> void:
 	esta_activo = valor
