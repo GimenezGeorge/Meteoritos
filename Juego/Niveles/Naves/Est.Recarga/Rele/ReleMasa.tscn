@@ -6,7 +6,7 @@
 [ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/Rele/rele_super_activado.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/Rele/ReleMasa.gd" type="Script" id=5]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 resource_name = "activado"
 length = 2.0
 loop = true
@@ -84,7 +84,7 @@ tracks/5/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=7]
 resource_name = "default"
 length = 0.001
 tracks/0/type = "value"
@@ -160,7 +160,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=8]
 resource_name = "spawn"
 length = 0.5
 tracks/0/type = "value"
@@ -315,9 +315,9 @@ texture = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spawn"
-anims/activado = SubResource( 4 )
-anims/default = SubResource( 2 )
-anims/spawn = SubResource( 3 )
+anims/activado = SubResource( 6 )
+anims/default = SubResource( 7 )
+anims/spawn = SubResource( 8 )
 anims/super_activado = SubResource( 5 )
 
 [node name="Tween" type="Tween" parent="."]
