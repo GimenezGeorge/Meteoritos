@@ -29,33 +29,33 @@ texture = ExtResource( 1 )
 [node name="Iconos" type="MarginContainer" parent="FondoMiniMapa"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RenderizadoMiniMapa" type="TextureRect" parent="FondoMiniMapa/Iconos"]
-margin_right = 288.0
-margin_bottom = 162.0
+margin_right = 278.0
+margin_bottom = 152.0
 
-[node name="Player" type="Sprite" parent="FondoMiniMapa/Iconos/RenderizadoMiniMapa" groups=[
-"minimap",
-]]
+[node name="Player" type="Sprite" parent="FondoMiniMapa/Iconos/RenderizadoMiniMapa"]
 position = Vector2( 62.7024, 81.7512 )
 rotation = 1.5708
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 
-[node name="BaseEnemiga" type="Sprite" parent="FondoMiniMapa/Iconos/RenderizadoMiniMapa" groups=[
-"minimap",
-]]
+[node name="BaseEnemiga" type="Sprite" parent="FondoMiniMapa/Iconos/RenderizadoMiniMapa"]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 235.729, 118.261 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
-[node name="EstacionRecarga" type="Sprite" parent="FondoMiniMapa/Iconos/RenderizadoMiniMapa" groups=[
-"minimap",
-]]
+[node name="EstacionRecarga" type="Sprite" parent="FondoMiniMapa/Iconos/RenderizadoMiniMapa"]
+visible = false
 modulate = Color( 0.921569, 0, 1, 1 )
 position = Vector2( 167.471, 38.0977 )
 scale = Vector2( 0.6, 0.6 )
