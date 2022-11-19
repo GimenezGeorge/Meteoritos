@@ -21,6 +21,7 @@ var numero_bases_enemigas = 0
 var player:Player = null
 
 func _ready() -> void:
+	Eventos.emit_signal("nivel_iniciado")
 	conectar_seniales()
 	crear_contenedores()
 	numero_bases_enemigas = contabilizar_bases_enemigas()
@@ -70,7 +71,7 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 			camara_nivel,
 			tiempo_transicion_camara
 		)
-	
+		$RestartTimer.start()
 	crear_explosion(posicion, num_explosiones, 0.6, Vector2(100.0, 50.0))
 	
 # warning-ignore:unused_variable
@@ -200,3 +201,10 @@ func _on_meteorito_destruido(pos: Vector2) -> void:
 func _on_TweenCamara_tween_completed(object: Object, _key: NodePath) -> void:
 	if object.name == "CamaraPlayer":
 		object.global_position = $Player.global_position
+
+
+func _on_RestartTimer_timeout() -> void:
+	Eventos.emit_signal("nivel_terminado")
+	yield(get_tree().create_timer(1.0), "timeout")
+# warning-ignore:return_value_discarded
+	get_tree().reload_current_scene()
