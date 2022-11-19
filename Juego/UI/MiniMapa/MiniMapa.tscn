@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Juego/UI/MiniMapa/image43.png" type="Texture" id=1]
 [ext_resource path="res://Juego/UI/MiniMapa/Player.png" type="Texture" id=2]
 [ext_resource path="res://Juego/UI/MiniMapa/MiniMapa.gd" type="Script" id=3]
+[ext_resource path="res://Juego/UI/MiniMapa/base_Enemiga.png" type="Texture" id=4]
+[ext_resource path="res://Juego/UI/MiniMapa/Estacion_Recarga.png" type="Texture" id=5]
 
 [node name="MiniMapa" type="MarginContainer"]
 anchor_left = 0.5
@@ -35,8 +37,26 @@ __meta__ = {
 margin_right = 288.0
 margin_bottom = 162.0
 
-[node name="Player" type="Sprite" parent="FondoMiniMapa/Iconos/RenderizadoMiniMapa"]
+[node name="Player" type="Sprite" parent="FondoMiniMapa/Iconos/RenderizadoMiniMapa" groups=[
+"minimap",
+]]
 position = Vector2( 62.7024, 81.7512 )
 rotation = 1.5708
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
+
+[node name="BaseEnemiga" type="Sprite" parent="FondoMiniMapa/Iconos/RenderizadoMiniMapa" groups=[
+"minimap",
+]]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 235.729, 118.261 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="EstacionRecarga" type="Sprite" parent="FondoMiniMapa/Iconos/RenderizadoMiniMapa" groups=[
+"minimap",
+]]
+modulate = Color( 0.921569, 0, 1, 1 )
+position = Vector2( 167.471, 38.0977 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 5 )
