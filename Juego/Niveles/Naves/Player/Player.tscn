@@ -47,7 +47,6 @@ position = Vector2( 0, 36 )
 position = Vector2( -17, 0 )
 
 [node name="MotorSFX" parent="." index="6" instance=ExtResource( 1 )]
-volumen_apagado = 20.0
 
 [node name="AnimationPlayer" parent="." index="7" instance=ExtResource( 6 )]
 

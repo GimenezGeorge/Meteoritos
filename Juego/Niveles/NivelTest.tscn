@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Juego/Niveles/Naves/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Proyectiles/Proyectil.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Juego/Niveles/Naves/Player/Enemigos/EnemigoBase.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/BaseEnemiga.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/Rele/ReleMasa.tscn" type="PackedScene" id=14]
 
 [node name="NivelTest" type="Node2D"]
 script = ExtResource( 3 )
@@ -21,6 +22,7 @@ meteorito = ExtResource( 7 )
 explosion_meteorito = ExtResource( 8 )
 sector_meteoritos = ExtResource( 5 )
 enemigo_interceptor = ExtResource( 12 )
+rele_masa = ExtResource( 14 )
 
 [node name="Area2D" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -117,27 +119,27 @@ script = ExtResource( 6 )
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 11 )]
-position = Vector2( 690.881, 861.427 )
+position = Vector2( 81.5073, 1310.44 )
 numero_peligros = 12
 
 [node name="TriggersInterceptores" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersInterceptores" instance=ExtResource( 11 )]
-position = Vector2( 2216.77, -543.099 )
+position = Vector2( -997.587, -813.932 )
 tipo_peligro = "Enemigo"
 numero_peligros = 5
 
 [node name="ContenedorEstaciones" type="Node" parent="."]
 
 [node name="EstacionRecarga" parent="ContenedorEstaciones" instance=ExtResource( 10 )]
-position = Vector2( 1676.92, 815.966 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 696.569, -93.2324 )
+position = Vector2( 2275.6, 1011.96 )
 
 [node name="ContenedorBasesEnemigas" type="Node" parent="."]
 
 [node name="BaseEnemiga" parent="ContenedorBasesEnemigas" instance=ExtResource( 13 )]
-position = Vector2( -566.612, 865.954 )
+position = Vector2( -694.901, 976.425 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1598.16, -424.646 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]

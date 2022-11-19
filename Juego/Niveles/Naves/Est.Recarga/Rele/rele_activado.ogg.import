@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rele_activado.ogg-f45c04e73a3b49fbee82fb525cc78544.oggstr"
+
+[deps]
+
+source_file="res://Juego/Niveles/Naves/Est.Recarga/Rele/rele_activado.ogg"
+dest_files=[ "res://.import/rele_activado.ogg-f45c04e73a3b49fbee82fb525cc78544.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
