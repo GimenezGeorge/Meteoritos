@@ -20,6 +20,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		nave_player.get_escudo().controlar_energia(radio_energia_entregada)
 	elif event.is_action("rec_laser"):
 		nave_player.get_laser().controlar_energia(radio_energia_entregada)
+	
+	if event.is_action_released("rec_escudo"):
+		Eventos.emit_signal("ocultar_energia_escudo")
+	elif event.is_action_released("rec_laser"):
+		Eventos.emit_signal("ocultar_energia_laser")
 
 func _on_AreaColision_body_entered(body: Node) -> void:
 	if body.has_method("destruir"):

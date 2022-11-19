@@ -4,8 +4,11 @@ extends CanvasLayer
 onready var info_zona_recarga:ContenedorInformacion = $InfoZonaRecarga
 onready var info_meteoritos:ContenedorInformacion = $InfoMeteoritos
 onready var info_tiempo_restante:ContenedorInformacion = $InfoTiempoRestante
+onready var info_laser:ContenedorInformacionEnergia = $InfoLaser
+onready var info_escudo:ContenedorInformacionEnergia = $InfoEscudo
 
-#func set_auto_ocultar
+#func set_auto_ocultar() -> Timer:
+#	$AutoOcultarTimer.ocultar_suavizado()
 
 func _ready() -> void:
 	conectar_seniales()
@@ -21,6 +24,14 @@ func conectar_seniales() -> void:
 	Eventos.connect("cambio_numero_meteoritos", self, "_on_actualizar_info_meteoritos")
 # warning-ignore:return_value_discarded
 	Eventos.connect("actualizar_tiempo", self, "_on_actualizar_info_tiempo")
+# warning-ignore:return_value_discarded
+	Eventos.connect("cambio_energia_laser", self, "_on_actualizar_energia_laser")
+# warning-ignore:return_value_discarded
+	Eventos.connect("ocultar_energia_laser", self, "ocultar")
+# warning-ignore:return_value_discarded
+	Eventos.connect("cambio_energia_escudo", self, "_on_actualizar_energia_escudo")
+# warning-ignore:return_value_discarded
+	Eventos.connect("ocultar_energia_escudo", self, "ocultar")
 
 func fade_in() -> void:
 	$FadeCanvas/AnimationPlayer.play("fade_in")
@@ -53,3 +64,16 @@ func _on_actualizar_info_tiempo(tiempo_restante: int) -> void:
 		info_tiempo_restante.set_auto_ocultar(false)
 	elif tiempo_restante == 0:
 		info_tiempo_restante.ocultar()
+
+func _on_actualizar_energia_laser(energia_max: float, energia_actual: float) -> void:
+	info_laser.mostrar()
+	info_laser.actualizar_energia(energia_max, energia_actual)
+
+func _on_actualizar_energia_escudo(energia_max: float, energia_actual: float) -> void:
+	info_escudo.mostrar()
+	info_escudo.actualizar_energia(energia_max, energia_actual)
+
+func _on_nave_destruida(nave: NaveBase, _posicion, _explosiones) -> void:
+	if nave is Player:
+		get_tree().call_group("contenedor_info", "set_esta_activo", false)
+		get_tree().call_group("contenedor_info", "ocultar")
