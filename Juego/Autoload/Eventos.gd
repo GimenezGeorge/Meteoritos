@@ -20,3 +20,5 @@ signal nivel_iniciado()
 signal nivel_terminado()
 # warning-ignore:unused_signal
 signal detecto_zona_recarga()
+# warning-ignore:unused_signal
+signal cambio_numero_meteoritos(numero)

@@ -69,7 +69,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=1]
-size = 60
+size = 50
 font_data = ExtResource( 2 )
 
 [node name="ContenedorInformación" type="NinePatchRect"]
@@ -104,3 +104,9 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AutoOcultarTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="AutoOcultarTimer" to="." method="_on_AutoOcultarTimer_timeout"]

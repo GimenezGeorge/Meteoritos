@@ -117,7 +117,7 @@ script = ExtResource( 6 )
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 11 )]
-position = Vector2( 81.5073, 1310.44 )
+position = Vector2( 2141.26, -282.484 )
 numero_peligros = 12
 
 [node name="TriggersInterceptores" type="Node" parent="."]
@@ -139,6 +139,7 @@ position = Vector2( -694.901, 976.425 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1598.16, -424.646 )
+potencia_motor = 25
 
 [node name="RestartTimer" type="Timer" parent="."]
 
