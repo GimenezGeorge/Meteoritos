@@ -16,7 +16,6 @@ func _ready() -> void:
 	timer_spawner.wait_time = intervalo_spawn
 	$AnimationPlayer.play(elegir_animacion_aleatoria())
 
-# warning-ignore:unused_argument
 #func _process(delta: float) -> void:
 #	var player_objetivo:Player = DatosJuego.get_player_actual()
 #	if not player_objetivo:
@@ -83,12 +82,11 @@ func recibir_danio(danio:float) -> void:
 	
 	if hitpoints <= 0 and not esta_destruida:
 		esta_destruida = true
-		queue_free()
+		destruir()
 	
 	impacto_sfx.play()
 
 func destruir() -> void:
-#	print("HOLAAA")
 	var posicion_partes = [
 		$Sprites/Parte2.global_position,
 		$Sprites/Parte3.global_position,
@@ -106,17 +104,12 @@ func _on_AreaColision_body_entered(body: Node) -> void:
 func _on_VisibilityNotifier2D_screen_entered() -> void:
 	#Spawn Orbital
 	$VisibilityNotifier2D.queue_free()
+	if numero_orbitales <= 0:
+		return
+	
+	timer_spawner.start()
 	posicion_spawn = deteccion_cuadrante()
 	spawnear_orbital()
-	timer_spawner.start()
-
-#	var new_orbital:EnemigoOrbital = orbital.instance()
-#	new_orbital.crear(
-#		global_position + $PosicionesSpawn/Norte.global_position,
-#		self
-#	)
-#	Eventos.emit_signal("spawn_orbital", new_orbital)
-
 
 func _on_TimerSpawnerEnemigos_timeout() -> void:
 	if numero_orbitales == 0:
