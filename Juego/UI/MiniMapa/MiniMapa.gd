@@ -2,15 +2,39 @@
 extends MarginContainer
 
 export var escala_zoom:float = 4.0
+export var tiempo_visible:float = 5.0
 
 onready var zona_renderizado:TextureRect = $FondoMiniMapa/Iconos/RenderizadoMiniMapa
 onready var icono_player:Sprite = $FondoMiniMapa/Iconos/RenderizadoMiniMapa/Player
 onready var icono_base:Sprite = $FondoMiniMapa/Iconos/RenderizadoMiniMapa/BaseEnemiga
 onready var icono_estacion:Sprite = $FondoMiniMapa/Iconos/RenderizadoMiniMapa/EstacionRecarga
+onready var icono_interceptor:Sprite = $FondoMiniMapa/Iconos/RenderizadoMiniMapa/Interceptor
+onready var icono_rele:Sprite = $FondoMiniMapa/Iconos/RenderizadoMiniMapa/Rele
 onready var items_mini_mapa:Dictionary = {}
+onready var timer_visibilidad:Timer = $TimerVisibilidad
+onready var tween_visibilidad:Tween = $TweenVisibilidad
 
 var escala_grilla:Vector2
 var player:Player = null
+var esta_visible:bool = true setget set_esta_visible
+
+func set_esta_visible(hacer_visible: bool) -> void:
+	if hacer_visible:
+		timer_visibilidad.start()
+	
+	esta_visible = hacer_visible
+# warning-ignore:return_value_discarded
+	tween_visibilidad.interpolate_property(
+		self,
+		"modulate",
+		Color(1, 1, 1, not hacer_visible),
+		Color(1, 1, 1, hacer_visible),
+		0.5,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN_OUT
+	)
+# warning-ignore:return_value_discarded
+	tween_visibilidad.start()
 
 func _ready() -> void:
 	set_process(false)
@@ -27,6 +51,20 @@ func _process(_delta: float) -> void:
 	
 	icono_player.rotation_degrees = player.rotation_degrees + 90
 	modificar_posicion_iconos()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("minimapa"):
+		set_esta_visible(not esta_visible)
+
+func conectar_seniales() -> void:
+# warning-ignore:return_value_discarded
+	Eventos.connect("nivel_iniciado", self, "_on_nivel_iniciado")
+# warning-ignore:return_value_discarded
+	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
+# warning-ignore:return_value_discarded
+	Eventos.connect("minimapa_objeto_creado", self, "obtener_objetos_minimapa")
+# warning-ignore:return_value_discarded
+	Eventos.connect("minimapa_objeto_destruido", self, "quitar_icono")
 
 func _on_nivel_iniciado() -> void:
 	player = DatosJuego.get_player_actual()
@@ -61,7 +99,21 @@ func obtener_objetos_minimapa() -> void:
 				sprite_icono = icono_base.duplicate()
 			elif objeto is EstacionRecarga:
 				sprite_icono = icono_estacion.duplicate()
+			elif objeto is EnemigoInterceptor:
+				sprite_icono = icono_interceptor.duplicate()
+			elif objeto is ReleDeMasa:
+				sprite_icono = icono_rele.duplicate()
 			
 			items_mini_mapa[objeto] = sprite_icono
 			items_mini_mapa[objeto].visible = true
 			zona_renderizado.add_child(items_mini_mapa[objeto])
+
+func quitar_icono(objeto: Node2D) -> void:
+	if objeto in items_mini_mapa:
+		items_mini_mapa[objeto].queue_free()
+# warning-ignore:return_value_discarded
+		items_mini_mapa.erase(objeto)
+
+func _on_TimerVisibilidad_timeout() -> void:
+	if esta_visible:
+		set_esta_visible(false)
