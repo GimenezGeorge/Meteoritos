@@ -21,4 +21,14 @@ position = Vector2( -2, 0 )
 stream = ExtResource( 5 )
 bus = "SFX"
 
+[node name="BarraSalud" type="ProgressBar" parent="."]
+margin_right = 4.0
+margin_bottom = 14.0
+value = 80.0
+rounded = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
