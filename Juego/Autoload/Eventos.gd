@@ -11,7 +11,7 @@ signal spawn_meteorito(posicion, direccion, tamanio)
 # warning-ignore:unused_signal
 signal meteorito_destruido(posicion)
 # warning-ignore:unused_signal
-signal base_destruida(base, posiciones)
+signal base_destruida(posiciones)
 # warning-ignore:unused_signal
 signal spawn_orbital(orbital)
 # warning-ignore:unused_signal
@@ -19,7 +19,7 @@ signal nivel_iniciado()
 # warning-ignore:unused_signal
 signal nivel_terminado()
 # warning-ignore:unused_signal
-signal detecto_zona_recarga()
+signal detecto_zona_recarga(entrando)
 # warning-ignore:unused_signal
 signal cambio_numero_meteoritos(numero)
 # warning-ignore:unused_signal

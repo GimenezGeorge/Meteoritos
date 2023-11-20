@@ -86,8 +86,8 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 		yield(get_tree().create_timer(0.6),"timeout")
 
 # warning-ignore:unused_argument
-func _on_base_destruida(base: Node2D, pos_partes: Array) -> void:
-	for posicion in pos_partes:
+func _on_base_destruida(base: Node2D, posiciones: Array) -> void:
+	for posicion in posiciones:
 		crear_explosion(posicion)
 		yield(get_tree().create_timer(0.5),"timeout")
 	

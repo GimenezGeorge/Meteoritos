@@ -142,7 +142,9 @@ position = Vector2( 2275.6, 1011.96 )
 ] instance=ExtResource( 13 )]
 position = Vector2( -694.901, 976.425 )
 
-[node name="BaseEnemiga2" parent="ContenedorBasesEnemigas" instance=ExtResource( 13 )]
+[node name="BaseEnemiga2" parent="ContenedorBasesEnemigas" groups=[
+"minimap",
+] instance=ExtResource( 13 )]
 position = Vector2( 744.789, -1257.95 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]

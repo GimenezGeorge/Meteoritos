@@ -87,14 +87,14 @@ func recibir_danio(danio:float) -> void:
 	impacto_sfx.play()
 
 func destruir() -> void:
-	var posicion_partes = [
+	var posiciones = [
+		$Sprites/Parte1.global_position,
 		$Sprites/Parte2.global_position,
 		$Sprites/Parte3.global_position,
-		$Sprites/Parte4.global_position,
-		$Sprites/Parte1.global_position
+		$Sprites/Parte4.global_position
 	]
 
-	Eventos.emit_signal("base_destruida", self, posicion_partes)
+	Eventos.emit_signal("base_destruida", self, posiciones)
 	Eventos.emit_signal("minimapa_objeto_destruido", self)
 	queue_free()
 

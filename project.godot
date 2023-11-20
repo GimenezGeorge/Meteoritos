@@ -152,7 +152,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Meteoritos"
+config/name="Meteoritos-2023.1"
 run/main_scene="res://Juego/Niveles/NivelTest.tscn"
 config/icon="res://starship_blue.png"
 
