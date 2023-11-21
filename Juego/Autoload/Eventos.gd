@@ -11,7 +11,7 @@ signal spawn_meteorito(posicion, direccion, tamanio)
 # warning-ignore:unused_signal
 signal meteorito_destruido(posicion)
 # warning-ignore:unused_signal
-signal base_destruida(posiciones)
+signal base_destruida(base, posicion_partes)
 # warning-ignore:unused_signal
 signal spawn_orbital(orbital)
 # warning-ignore:unused_signal
@@ -35,4 +35,4 @@ signal ocultar_energia_escudo()
 # warning-ignore:unused_signal
 signal minimapa_objeto_creado()
 # warning-ignore:unused_signal
-signal minimapa_objeto_destruido()
+signal minimapa_objeto_destruido(objeto)

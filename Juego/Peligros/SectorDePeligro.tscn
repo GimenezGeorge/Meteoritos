@@ -14,5 +14,4 @@ tipo_peligro = "Meteorito"
 shape = SubResource( 1 )
 
 [node name="PositionCentroSector" type="Position2D" parent="."]
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

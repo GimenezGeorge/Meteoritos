@@ -130,26 +130,22 @@ numero_peligros = 5
 
 [node name="ContenedorEstaciones" type="Node" parent="."]
 
-[node name="EstacionRecarga" parent="ContenedorEstaciones" groups=[
-"minimap",
-] instance=ExtResource( 10 )]
+[node name="EstacionRecarga" parent="ContenedorEstaciones" groups=["minimap"] instance=ExtResource( 10 )]
 position = Vector2( 2275.6, 1011.96 )
 
 [node name="ContenedorBasesEnemigas" type="Node" parent="."]
 
-[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" groups=[
-"minimap",
-] instance=ExtResource( 13 )]
+[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" groups=["minimap"] instance=ExtResource( 13 )]
 position = Vector2( -694.901, 976.425 )
 
-[node name="BaseEnemiga2" parent="ContenedorBasesEnemigas" groups=[
-"minimap",
-] instance=ExtResource( 13 )]
+[node name="BaseEnemiga2" parent="ContenedorBasesEnemigas" groups=["minimap"] instance=ExtResource( 13 )]
 position = Vector2( 744.789, -1257.95 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1598.16, -424.646 )
 potencia_motor = 25
+potencia_rotacion = 260
+estela_maxima = 150
 
 [node name="RestartTimer" type="Timer" parent="."]
 

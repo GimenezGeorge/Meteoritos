@@ -81,5 +81,4 @@ texture = ExtResource( 6 )
 
 [node name="TimerVisibilidad" type="Timer" parent="."]
 one_shot = true
-
 [connection signal="timeout" from="TimerVisibilidad" to="." method="_on_TimerVisibilidad_timeout"]

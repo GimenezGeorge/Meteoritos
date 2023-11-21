@@ -1,3 +1,4 @@
+#EnemigoOrbital.gd
 class_name EnemigoOrbital
 extends EnemigoBase
 

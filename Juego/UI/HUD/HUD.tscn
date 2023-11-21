@@ -280,7 +280,11 @@ text = "Energia Escudo"
 ] instance=ExtResource( 6 )]
 
 [editable path="InfoZonaRecarga"]
+
 [editable path="InfoMeteoritos"]
+
 [editable path="InfoTiempoRestante"]
+
 [editable path="InfoLaser"]
+
 [editable path="InfoEscudo"]

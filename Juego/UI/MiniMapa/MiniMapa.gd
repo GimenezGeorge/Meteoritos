@@ -40,10 +40,7 @@ func _ready() -> void:
 	set_process(false)
 	icono_player.position = zona_renderizado.rect_size * 0.5
 	escala_grilla = zona_renderizado.rect_size / (get_viewport_rect().size * escala_zoom)
-# warning-ignore:return_value_discarded
-	Eventos.connect("nivel_iniciado", self, "_on_nivel_iniciado")
-# warning-ignore:return_value_discarded
-	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
+	conectar_seniales()
 
 func _process(_delta: float) -> void:
 	if not player:
@@ -65,6 +62,8 @@ func conectar_seniales() -> void:
 	Eventos.connect("minimapa_objeto_creado", self, "obtener_objetos_minimapa")
 # warning-ignore:return_value_discarded
 	Eventos.connect("minimapa_objeto_destruido", self, "quitar_icono")
+# warning-ignore:return_value_discarded
+	Eventos.connect("base_destruida", self, "quitar_icono")
 
 func _on_nivel_iniciado() -> void:
 	player = DatosJuego.get_player_actual()
@@ -74,41 +73,6 @@ func _on_nivel_iniciado() -> void:
 func _on_nave_destruida(nave: NaveBase, _posicion, _explosiones) -> void:
 	if nave is Player:
 		player = null
-
-func modificar_posicion_iconos() -> void:
-	for item in items_mini_mapa:
-		var item_icono:Sprite = items_mini_mapa[item]
-		
-		# Verificar si el objeto no es null antes de acceder a su posición
-		if item and item_icono and item.position:
-			var offset_pos:Vector2 = item.position - player.position
-			var pos_icono:Vector2 = offset_pos * escala_grilla + icono_player.position
-			pos_icono.x = clamp(pos_icono.x, 0, zona_renderizado.rect_size.x)
-			pos_icono.y = clamp(pos_icono.y, 0, zona_renderizado.rect_size.y)
-			item_icono.position = pos_icono
-
-			if zona_renderizado.get_rect().has_point(pos_icono - zona_renderizado.rect_position):
-				item_icono.scale = Vector2(0.5, 0.5)
-			else:
-				item_icono.scale = Vector2(0.3, 0.3)
-		else:
-			# El objeto ha sido eliminado, realiza cualquier acción adicional necesaria
-			print("Objeto en items_mini_mapa es null:", item)
-
-#func modificar_posicion_iconos() -> void:
-#	for item in items_mini_mapa:
-#		var item_icono:Sprite = items_mini_mapa[item]
-#		var offset_pos:Vector2 = item .position - player.position
-##		var pos_icono:Vector2 = offset_pos * escala_grilla + (zona_renderizado.rect_size * 0.5)
-#		var pos_icono:Vector2 = offset_pos * escala_grilla + icono_player.position
-#		pos_icono.x = clamp(pos_icono.x, 0, zona_renderizado.rect_size.x)
-#		pos_icono.y = clamp(pos_icono.y, 0, zona_renderizado.rect_size.y)
-#		item_icono.position = pos_icono
-#
-#		if zona_renderizado.get_rect().has_point(pos_icono - zona_renderizado.rect_position):
-#			item_icono.scale = Vector2(0.5, 0.5)
-#		else:
-#			item_icono.scale = Vector2(0.3, 0.3)
 
 func obtener_objetos_minimapa() -> void:
 	var objetos_en_ventana:Array = get_tree().get_nodes_in_group("minimap")
@@ -128,10 +92,27 @@ func obtener_objetos_minimapa() -> void:
 			items_mini_mapa[objeto].visible = true
 			zona_renderizado.add_child(items_mini_mapa[objeto])
 
+func modificar_posicion_iconos() -> void:
+	for item in items_mini_mapa:
+		if item:
+			var item_icono:Sprite = items_mini_mapa[item]
+			var offset_pos:Vector2 = item.position - player.position
+			var pos_icono:Vector2 = offset_pos * escala_grilla + (zona_renderizado.rect_size * 0.5)
+	#		var pos_icono:Vector2 = offset_pos * escala_grilla + icono_player.position
+			pos_icono.x = clamp(pos_icono.x, 0, zona_renderizado.rect_size.x)
+			pos_icono.y = clamp(pos_icono.y, 0, zona_renderizado.rect_size.y)
+			item_icono.position = pos_icono
+	
+			if zona_renderizado.get_rect().has_point(pos_icono - zona_renderizado.rect_position):
+				item_icono.scale = Vector2(0.5, 0.5)
+			else:
+				item_icono.scale = Vector2(0.3, 0.3)
+
 func quitar_icono(objeto: Node2D) -> void:
 	if objeto in items_mini_mapa:
 		items_mini_mapa[objeto].queue_free()
-		items_mini_mapa[objeto].erase()
+# warning-ignore:return_value_discarded
+		items_mini_mapa.erase(objeto)
 
 func _on_TimerVisibilidad_timeout() -> void:
 	if esta_visible:

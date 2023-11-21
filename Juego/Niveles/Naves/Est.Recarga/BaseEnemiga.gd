@@ -6,6 +6,8 @@ export var orbital:PackedScene = null
 export var numero_orbitales:int = 10
 export var intervalo_spawn:float = 0.8
 
+export(Array, PackedScene) var rutas
+
 onready var impacto_sfx:AudioStreamPlayer2D = $ImpactoSFX
 onready var timer_spawner:Timer = $TimerSpawnerEnemigos
 
@@ -25,6 +27,7 @@ func _ready() -> void:
 #	var angulo_player:float = rad2deg(dir_player.angle())
 #	print(angulo_player)
 
+## Metodos Custom
 func spawnear_orbital() -> void:
 #	var pos_spawn:Vector2 = deteccion_cuadrante()
 	numero_orbitales -= 1
@@ -87,17 +90,18 @@ func recibir_danio(danio:float) -> void:
 	impacto_sfx.play()
 
 func destruir() -> void:
-	var posiciones = [
+	var posicion_partes = [
 		$Sprites/Parte1.global_position,
 		$Sprites/Parte2.global_position,
 		$Sprites/Parte3.global_position,
 		$Sprites/Parte4.global_position
 	]
 
-	Eventos.emit_signal("base_destruida", self, posiciones)
+	Eventos.emit_signal("base_destruida", self, posicion_partes)
 	Eventos.emit_signal("minimapa_objeto_destruido", self)
 	queue_free()
 
+## Señales Internas
 func _on_AreaColision_body_entered(body: Node) -> void:
 	if body.has_method("destruir"):
 		body.destruir()
