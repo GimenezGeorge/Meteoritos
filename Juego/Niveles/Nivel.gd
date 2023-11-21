@@ -23,6 +23,7 @@ var numero_bases_enemigas = 0
 var player:Player = null
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Eventos.emit_signal("nivel_iniciado")
 	Eventos.emit_signal("actualizar_tiempo", tiempo_limite)
 	conectar_seniales()

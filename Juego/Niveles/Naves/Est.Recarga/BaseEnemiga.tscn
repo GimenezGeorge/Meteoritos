@@ -137,7 +137,7 @@ _data = {
 script = ExtResource( 6 )
 orbital = ExtResource( 10 )
 numero_orbitales = 2
-rutas = [ null ]
+rutas = [ null, null ]
 
 [node name="Sprites" type="Node2D" parent="."]
 z_index = 1
