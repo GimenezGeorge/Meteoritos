@@ -198,9 +198,7 @@ autoplay = "fade_in"
 anims/default = SubResource( 1 )
 anims/fade_in = SubResource( 2 )
 
-[node name="InfoZonaRecarga" parent="." groups=[
-"contenedor_info",
-] instance=ExtResource( 3 )]
+[node name="InfoZonaRecarga" parent="." groups=["contenedor_info"] instance=ExtResource( 3 )]
 margin_right = 367.0
 margin_bottom = 183.0
 
@@ -208,9 +206,7 @@ margin_bottom = 183.0
 text = "En Zona de Recarga"
 autowrap = true
 
-[node name="InfoMeteoritos" parent="." groups=[
-"contenedor_info",
-] instance=ExtResource( 4 )]
+[node name="InfoMeteoritos" parent="." groups=["contenedor_info"] instance=ExtResource( 4 )]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -147.0
@@ -222,9 +218,7 @@ auto_ocultar = true
 text = "Meteoritos Restantes "
 autowrap = true
 
-[node name="InfoTiempoRestante" parent="." groups=[
-"contenedor_info",
-] instance=ExtResource( 4 )]
+[node name="InfoTiempoRestante" parent="." groups=["contenedor_info"] instance=ExtResource( 4 )]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -355.0
@@ -239,9 +233,7 @@ MM:SS"
 [node name="AutoOcultarTimer" parent="InfoTiempoRestante" index="2"]
 one_shot = false
 
-[node name="InfoLaser" parent="." groups=[
-"contenedor_info",
-] instance=ExtResource( 5 )]
+[node name="InfoLaser" parent="." groups=["contenedor_info"] instance=ExtResource( 5 )]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -254,9 +246,7 @@ margin_bottom = 0.0
 [node name="Label" parent="InfoLaser" index="1"]
 text = "Energia Laser"
 
-[node name="InfoEscudo" parent="." groups=[
-"contenedor_info",
-] instance=ExtResource( 5 )]
+[node name="InfoEscudo" parent="." groups=["contenedor_info"] instance=ExtResource( 5 )]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -275,16 +265,10 @@ anims/ocultar_suavizado = SubResource( 6 )
 [node name="Label" parent="InfoEscudo" index="1"]
 text = "Energia Escudo"
 
-[node name="MiniMapa" parent="." groups=[
-"contenedor_info",
-] instance=ExtResource( 6 )]
+[node name="MiniMapa" parent="." groups=["contenedor_info"] instance=ExtResource( 6 )]
 
 [editable path="InfoZonaRecarga"]
-
 [editable path="InfoMeteoritos"]
-
 [editable path="InfoTiempoRestante"]
-
 [editable path="InfoLaser"]
-
 [editable path="InfoEscudo"]

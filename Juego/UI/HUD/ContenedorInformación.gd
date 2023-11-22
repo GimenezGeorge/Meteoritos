@@ -10,6 +10,7 @@ onready var animaciones:AnimationPlayer = $AnimationPlayer
 var ocultar_timer:bool = true setget set_auto_ocultar
 var esta_activo:bool = true setget set_esta_activo
 
+## Setters y Getters
 func set_auto_ocultar(valor: bool) -> void:
 	auto_ocultar = valor
 
@@ -19,6 +20,7 @@ func set_esta_activo(valor: bool) -> void:
 func modificar_texto(text: String) -> void:
 	texto_contenedor.text = text
 
+## Metodos
 func mostrar() -> void:
 	if esta_activo:
 		animaciones.play("Mostrar")
