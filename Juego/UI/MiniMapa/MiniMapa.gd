@@ -1,9 +1,16 @@
 #MiniMapa.gd
 extends MarginContainer
 
+## Atributos Export
 export var escala_zoom:float = 4.0
 export var tiempo_visible:float = 5.0
 
+## Atributos
+var escala_grilla:Vector2
+var player:Player = null
+var esta_visible:bool = true setget set_esta_visible
+
+## Atributos Onready
 onready var zona_renderizado:TextureRect = $FondoMiniMapa/Iconos/RenderizadoMiniMapa
 onready var icono_player:Sprite = $FondoMiniMapa/Iconos/RenderizadoMiniMapa/Player
 onready var icono_base:Sprite = $FondoMiniMapa/Iconos/RenderizadoMiniMapa/BaseEnemiga
@@ -14,10 +21,7 @@ onready var items_mini_mapa:Dictionary = {}
 onready var timer_visibilidad:Timer = $TimerVisibilidad
 onready var tween_visibilidad:Tween = $TweenVisibilidad
 
-var escala_grilla:Vector2
-var player:Player = null
-var esta_visible:bool = true setget set_esta_visible
-
+## Metodos
 func set_esta_visible(hacer_visible: bool) -> void:
 	if hacer_visible:
 		timer_visibilidad.start()
@@ -53,6 +57,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("minimapa"):
 		set_esta_visible(not esta_visible)
 
+## Metodos Custom
 func conectar_seniales() -> void:
 # warning-ignore:return_value_discarded
 	Eventos.connect("nivel_iniciado", self, "_on_nivel_iniciado")
