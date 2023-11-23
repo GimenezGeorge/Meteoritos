@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/Estacion_Recarga.png" type="Texture" id=1]
 [ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/AreaAtraccion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/EstacionRecarga.gd" type="Script" id=3]
 [ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/estacion_seca.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/cargando_sfx.ogg" type="AudioStream" id=5]
+[ext_resource path="res://TemporalAssets/kenney_fontpackage/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 70.0
@@ -259,6 +260,17 @@ tracks/12/keys = {
 "values": [ Vector2( 15, 15 ), Vector2( 14.5, 14.5 ), Vector2( 15, 15 ), Vector2( 14.5, 14.5 ), Vector2( 15, 15 ), Vector2( 14.5, 14.5 ), Vector2( 15, 15 ), Vector2( 14.5, 14.5 ), Vector2( 15, 15 ), Vector2( 14.5, 14.5 ), Vector2( 15, 15 ), Vector2( 14.5, 14.5 ), Vector2( 15, 15 ), Vector2( 14.5, 14.5 ) ]
 }
 
+[sub_resource type="DynamicFont" id=5]
+size = 21
+outline_size = 2
+outline_color = Color( 0.501961, 0.376471, 0.0352941, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.501961, 0.898039, 0.745098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+
 [node name="EstacionRecarga" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -286,6 +298,16 @@ stream = ExtResource( 5 )
 [node name="VacioSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 bus = "SFX"
+
+[node name="BarraEnergia" type="ProgressBar" parent="."]
+margin_left = -155.0
+margin_top = -199.0
+margin_right = 152.0
+margin_bottom = -185.0
+custom_fonts/font = SubResource( 5 )
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 6 )
+value = 80.0
 
 [connection signal="body_entered" from="AreaColision" to="." method="_on_AreaColision_body_entered"]
 [connection signal="body_entered" from="AreaRecarga" to="." method="_on_AreaRecarga_body_entered"]
