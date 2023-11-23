@@ -1,6 +1,8 @@
 class_name Nivel
 extends Node2D
 
+export var musica_nivel:AudioStream = null
+export var musica_combate:AudioStream = null
 export var explosion:PackedScene = null
 export var meteorito:PackedScene = null
 export var explosion_meteorito:PackedScene = null
@@ -9,6 +11,7 @@ export var tiempo_transicion_camara:float = 2.0
 export var enemigo_interceptor:PackedScene = null
 export var rele_masa:PackedScene = null
 export var tiempo_limite:int = 30
+export(String, FILE, "*.tscn") var prox_nivel = ""
 
 onready var contenedor_proyectiles:Node
 onready var contenedor_meteoritos:Node
@@ -24,6 +27,8 @@ var player:Player = null
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	MusicaJuego.set_streams(musica_nivel, musica_combate)
+	MusicaJuego.play_musica_nivel()
 	Eventos.emit_signal("nivel_iniciado")
 	Eventos.emit_signal("actualizar_tiempo", tiempo_limite)
 	conectar_seniales()
@@ -47,6 +52,7 @@ func conectar_seniales() -> void:
 	Eventos.connect("base_destruida", self, "_on_base_destruida")
 # warning-ignore:return_value_discarded
 	Eventos.connect("spawn_orbital", self, "_on_spawn_orbital")
+	Eventos.connect("nivel_completado", self, "_on_nivel_completado")
 
 func crear_contenedores() -> void:
 	contenedor_proyectiles = Node.new()
@@ -191,6 +197,11 @@ func _on_spawn_meteoritos(pos_spawn: Vector2, dir_meteorito: Vector2, tamanio: f
 
 func _on_spawn_orbital(enemigo: EnemigoOrbital) -> void:
 	contenedor_enemigos.add_child(enemigo)
+
+func _on_nivel_completado() -> void:
+	Eventos.emit_signal("nivel_terminado")
+	yield(get_tree().create_timer(1.0), "timeout")
+	get_tree().change_scene(prox_nivel)
 
 func crear_rele() -> void:
 	var new_rele_masa:ReleDeMasa = rele_masa.instance()

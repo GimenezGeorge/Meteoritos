@@ -330,6 +330,7 @@ pitch_scale = 1.44
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorPlayer"]
 shape = SubResource( 5 )
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="body_entered" from="DetectorPlayer" to="." method="_on_DetectorPlayer_body_entered"]

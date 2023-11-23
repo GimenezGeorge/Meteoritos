@@ -2,34 +2,40 @@
 extends Node
 
 ## Atributos Export
-export var musica_nivel:AudioStream = null
-export var musica_combate:AudioStream = null
 export var tiempo_transicion:float = 4.0
 export(float, -50.0, -20.0, 5.0) var volumen_apagado = -40.0
 
 ## Atributos Onready
-#onready var musica_nivel:AudioStreamPlayer = $MusicaNivel
-#onready var musica_combate:AudioStreamPlayer = $MusicaCombate
+onready var musica_nivel:AudioStreamPlayer = $MusicaNivel
+onready var musica_combate:AudioStreamPlayer = $MusicaCombate
 onready var tween_on:Tween = $TweenMusicaOn
 onready var tween_off:Tween = $TweenMusicaOff
+onready var lista_musicas:Dictionary = {
+	"menu_principal": $MusicaMenuPrincipal
+} setget, get_lista_musicas
 
 ## Atributos
 var vol_original_musica_off:float = 0.0
 
 ## Metodos
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	MusicaJuego.set_streams(musica_nivel, musica_combate)
-	MusicaJuego.play_musica_nivel()
+func get_lista_musicas() -> Dictionary:
+	return lista_musicas
 
 ## MetodosCustom
 func set_streams(stream_musica: AudioStream, stream_combate: AudioStream) -> void:
 	musica_nivel.stream = stream_musica
 	musica_combate.stream = stream_combate
 
+func play_musica(musica: AudioStreamPlayer) -> void:
+	stop_todo()
+	musica.play()
+
 func play_musica_nivel() -> void:
 	stop_todo()
 	musica_nivel.play()
+
+func play_boton() -> void:
+	$BotonMenu.play()
 
 func stop_todo() -> void:
 	for nodo in get_children():
