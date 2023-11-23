@@ -43,6 +43,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("m_atras"):
 		estela.set_max_points(0)
 	
+	if (event.is_action_released("m_adelante") or event.is_action_released("m_atras")):
+		motor_sfx.sonido_off()
+
 	if event.is_action_pressed("escudo") and not escudo.get_esta_activado():
 		escudo.activar()
 
