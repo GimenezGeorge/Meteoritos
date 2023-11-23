@@ -50,7 +50,7 @@ func recibir_danio(danio: float) -> void:
 	if hitpoints <= 0.0:
 		destruir()
 		
-	barra_salud.value = hitpoints
+	barra_salud.controlar_barra(hitpoints,true)
 	impacto_sfx.play()
 
 func destruir() -> void:

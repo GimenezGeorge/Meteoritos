@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Juego/Niveles/Naves/NaveBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Naves/Player/Enemigos/nave_enemigo.png" type="Texture" id=2]
@@ -147,6 +147,24 @@ radius = 332.456
 [sub_resource type="CircleShape2D" id=6]
 radius = 835.434
 
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0509804, 0.964706, 0.203922, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0627451, 0.054902, 0.054902, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.921569, 0.498039, 0.498039, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0509804, 0.0470588, 0.0470588, 1 )
+border_blend = true
+
 [node name="EnemigoBase" instance=ExtResource( 1 )]
 z_index = 30
 z_as_relative = false
@@ -156,6 +174,7 @@ physics_material_override = SubResource( 1 )
 contacts_reported = 2
 contact_monitor = true
 script = ExtResource( 5 )
+potencia_max = 800.0
 
 [node name="Sprite" parent="." index="0"]
 visible = false
@@ -198,6 +217,14 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" index="0"]
 shape = SubResource( 6 )
+
+[node name="BarraSalud" parent="." index="8"]
+margin_left = -105.0
+margin_top = 68.0
+margin_right = 31.0
+margin_bottom = 87.0
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="AreaDisparo" to="." method="_on_AreaDisparo_body_entered"]
