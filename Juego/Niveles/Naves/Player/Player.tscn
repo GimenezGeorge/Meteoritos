@@ -75,6 +75,7 @@ position = Vector2( -17, 0 )
 
 [node name="LaserBeam2D" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 30, 0 )
+energia = 6.0
 
 [node name="BarraSalud" parent="." index="10"]
 custom_styles/fg = SubResource( 2 )
