@@ -266,6 +266,7 @@ anims/ocultar_suavizado = SubResource( 6 )
 text = "Energia Escudo"
 
 [node name="MiniMapa" parent="." groups=["contenedor_info"] instance=ExtResource( 6 )]
+tiempo_visible = 8.0
 
 [editable path="InfoZonaRecarga"]
 [editable path="InfoMeteoritos"]

@@ -10,3 +10,4 @@ prox_nivel = "res://Juego/Niveles/Nivel2.tscn"
 
 [node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0"]
 position = Vector2( 400.278, 981.4 )
+numero_orbitales = 3
