@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func _on_BotonJugar_pressed() -> void:
 	MusicaJuego.play_boton()
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(nivel_inicial)
 
 func _on_BotonSalir_pressed() -> void:
