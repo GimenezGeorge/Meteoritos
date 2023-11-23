@@ -166,6 +166,7 @@ config/icon="res://starship_blue.png"
 
 Eventos="*res://Juego/Autoload/Eventos.gd"
 DatosJuego="*res://Juego/Autoload/DatosJuego.gd"
+MusicaJuego="*res://Juego/Autoload/MusicaJuego.tscn"
 
 [display]
 

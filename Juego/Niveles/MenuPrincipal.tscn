@@ -1,0 +1,19 @@
+[gd_scene format=2]
+
+[node name="MenuPrincipal" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0431373, 0.0117647, 0.0117647, 1 )
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -198.551
+margin_top = -66.3676
+margin_right = 239.449
+margin_bottom = 47.6324
+text = "Jugar"
