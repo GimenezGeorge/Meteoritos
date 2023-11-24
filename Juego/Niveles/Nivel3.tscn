@@ -1,6 +1,37 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/EstacionRecarga.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/BaseEnemiga.tscn" type="PackedScene" id=4]
 
 [node name="Nivel3" instance=ExtResource( 1 )]
 prox_nivel = "res://Juego/Niveles/Nivel4.tscn"
+
+[node name="SectorMeteoritos" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 3 )]
+position = Vector2( 3707.63, 3391.88 )
+
+[node name="SectorMeteoritos2" parent="TriggersLluviaMeteoritos" index="1" instance=ExtResource( 3 )]
+position = Vector2( 7542.06, -3307.68 )
+
+[node name="SectorMeteoritos3" parent="TriggersLluviaMeteoritos" index="2" instance=ExtResource( 3 )]
+position = Vector2( 3180.22, -3264.92 )
+
+[node name="SectorMeteoritos4" parent="TriggersLluviaMeteoritos" index="3" instance=ExtResource( 3 )]
+position = Vector2( -2350.48, -3222.15 )
+
+[node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" groups=["minimap"] instance=ExtResource( 2 )]
+position = Vector2( 3710.33, 1779.05 )
+energia = 13.0
+
+[node name="EstacionRecarga3" parent="ContenedorEstaciones" index="1" groups=["minimap"] instance=ExtResource( 2 )]
+position = Vector2( 203.749, -2882.13 )
+energia = 21.0
+
+[node name="EstacionRecarga2" parent="ContenedorEstaciones" index="2" groups=["minimap"] instance=ExtResource( 2 )]
+position = Vector2( 297.808, 5807.12 )
+energia = 10.0
+
+[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" groups=["minimap"] instance=ExtResource( 4 )]
+position = Vector2( 2797.93, 9199.19 )
+numero_orbitales = 6

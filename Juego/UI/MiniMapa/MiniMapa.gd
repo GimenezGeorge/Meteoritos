@@ -113,7 +113,7 @@ func modificar_posicion_iconos() -> void:
 			else:
 				item_icono.scale = Vector2(0.3, 0.3)
 
-func quitar_icono(objeto: Node2D) -> void:
+func quitar_icono(objeto) -> void:
 	if objeto in items_mini_mapa:
 		items_mini_mapa[objeto].queue_free()
 # warning-ignore:return_value_discarded

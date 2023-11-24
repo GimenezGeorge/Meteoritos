@@ -9,9 +9,11 @@ extents = Vector2( 105.5, 50.522 )
 collision_layer = 0
 script = ExtResource( 1 )
 tipo_peligro = "Meteorito"
+numero_peligros = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="PositionCentroSector" type="Position2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

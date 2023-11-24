@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Juego/Niveles/Naves/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Musicas/Musica_Combate.wav" type="AudioStream" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Juego/Meteoritos/Meteorito.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Explosiones/ExplosionMeteorito.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Juego/Niveles/Fondos/StarFieldBackground.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/BaseEnemiga.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Juego/Niveles/Naves/Player/Enemigos/EnemigoBase.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/Rele/ReleMasa.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Juego/UI/HUD/HUD.tscn" type="PackedScene" id=15]
@@ -38,9 +37,6 @@ prox_nivel = "res://Juego/Niveles/MenuPrincipal.tscn"
 
 [node name="ContenedorBasesEnemigas" type="Node" parent="."]
 
-[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" instance=ExtResource( 10 )]
-position = Vector2( 3000.55, 2230.81 )
-
 [node name="CameraNivel" type="Camera2D" parent="."]
 position = Vector2( 956.008, 539.23 )
 script = ExtResource( 6 )
@@ -50,6 +46,7 @@ script = ExtResource( 6 )
 [node name="TweenCamara" type="Tween" parent="."]
 
 [node name="RestartTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="ActualizadorTimer" type="Timer" parent="."]
 

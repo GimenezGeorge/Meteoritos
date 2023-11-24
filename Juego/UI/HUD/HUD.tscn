@@ -168,6 +168,7 @@ script = ExtResource( 2 )
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -201,6 +202,9 @@ anims/fade_in = SubResource( 2 )
 [node name="InfoZonaRecarga" parent="." groups=["contenedor_info"] instance=ExtResource( 3 )]
 margin_right = 367.0
 margin_bottom = 183.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" parent="InfoZonaRecarga" index="1"]
 text = "En Zona de Recarga"
@@ -212,6 +216,9 @@ anchor_bottom = 1.0
 margin_top = -147.0
 margin_right = 367.0
 margin_bottom = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 auto_ocultar = true
 
 [node name="Label" parent="InfoMeteoritos" index="1"]
@@ -224,6 +231,9 @@ anchor_right = 1.0
 margin_left = -355.0
 margin_right = 0.0
 margin_bottom = 167.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 auto_ocultar = true
 
 [node name="Label" parent="InfoTiempoRestante" index="1"]
@@ -242,6 +252,9 @@ margin_left = -411.0
 margin_top = -200.0
 margin_right = 0.0
 margin_bottom = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" parent="InfoLaser" index="1"]
 text = "Energia Laser"
@@ -255,6 +268,9 @@ margin_left = -405.0
 margin_top = -404.0
 margin_right = 6.0
 margin_bottom = -204.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" parent="InfoEscudo" index="0"]
 anims/Mostrar = SubResource( 3 )

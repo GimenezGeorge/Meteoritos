@@ -63,6 +63,7 @@ position = Vector2( 0, -36 )
 position = Vector2( 0, 36 )
 
 [node name="Escudo" parent="." index="4" instance=ExtResource( 4 )]
+energia = 12.0
 
 [node name="EstelaPuntoInicio" parent="." index="5" instance=ExtResource( 3 )]
 position = Vector2( -17, 0 )
@@ -75,7 +76,7 @@ position = Vector2( -17, 0 )
 
 [node name="LaserBeam2D" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 30, 0 )
-energia = 6.0
+energia = 8.0
 
 [node name="BarraSalud" parent="." index="10"]
 custom_styles/fg = SubResource( 2 )

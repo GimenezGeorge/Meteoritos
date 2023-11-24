@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/EstacionRecarga.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Niveles/Naves/Est.Recarga/BaseEnemiga.tscn" type="PackedScene" id=3]
 
 [node name="Nivel1" instance=ExtResource( 1 )]
 prox_nivel = "res://Juego/Niveles/Nivel2.tscn"
 
 [node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" groups=["minimap"] instance=ExtResource( 2 )]
+position = Vector2( 3336.27, 897.064 )
+energia = 20.0
 
-[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" groups=["minimap"]]
-position = Vector2( 400.278, 981.4 )
-numero_orbitales = 3
+[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" groups=["minimap"] instance=ExtResource( 3 )]
+position = Vector2( -611.631, 3329.99 )
